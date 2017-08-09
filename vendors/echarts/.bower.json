@@ -1,0 +1,14 @@
+{
+  "name": "echarts",
+  "homepage": "https://github.com/ecomfe/echarts",
+  "version": "3.6.2",
+  "_release": "3.6.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.6.2",
+    "commit": "31c35216b64ea5b9397829aefe57b8a1bc185e20"
+  },
+  "_source": "https://github.com/ecomfe/echarts.git",
+  "_target": "^3.1.7",
+  "_originalSource": "echarts"
+}
