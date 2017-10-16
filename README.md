@@ -12,7 +12,9 @@ Gentelella RTL Admin is a fork from gentelella Admin Bootstrap template.
 Our goal is to make it installable on different Package Manager! Do you want to use it on your favorite Package Manager and you know how? Pull request all the way! 
 
 As of now, this is some installation available:
+
 **Install using github**
+
 ```
 git clone https://github.com/mortezakarimi/gentelella-rtl.git -b 'gh-pages'
 ```
