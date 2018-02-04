@@ -32,7 +32,7 @@ gulp.task('scripts', function () {
         .pipe(concat('custom.js'))
         .pipe(gulp.dest(DEST + '/js'))
         .pipe(rename({suffix: '.min'}))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest(DEST + '/js'))
         .pipe(browserSync.stream());
 });
@@ -76,13 +76,14 @@ gulp.task('browser-sync', ['layout'], function () {
     gulp.watch('src/scss/*.scss', ['compass', 'css-minify']);
 });
 
-gulp.task('watch', ['layout', 'css-minify'], function () {
+gulp.task('watch', ['layout'], function () {
     // Watch .html files
     gulp.watch('production/*.html', ['layout', browserSync.reload]);
     // Watch .js files
     gulp.watch('src/js/*.js', ['scripts']);
     // Watch .scss files
-    gulp.watch('src/scss/*.scss', ['compass', 'css-minify']);
+    gulp.watch('src/scss/*.scss', ['compass']);
 });
 // Default Task
 gulp.task('default', ['layout', 'browser-sync', 'watch']);
+gulp.task('production', ['layout', 'browser-sync', 'watch', 'css-minify']);

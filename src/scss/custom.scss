@@ -2,6 +2,166 @@
 @import "partials/variables";
 @import "partials/extends";
 @import "partials/utilis";
+//@import "daterangepicker";
+
+.daterangepicker .ranges li {
+  color: #73879C
+}
+
+.daterangepicker .ranges li.active,
+.daterangepicker .ranges li:hover {
+  background: #536A7F;
+  border: 1px solid #536A7F;
+  color: #fff
+}
+
+.daterangepicker .input-mini {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  box-shadow: none !important
+}
+
+.daterangepicker .input-mini.active {
+  border: 1px solid #ccc
+}
+
+.daterangepicker select.monthselect,
+.daterangepicker select.yearselect,
+.daterangepicker select.hourselect,
+.daterangepicker select.minuteselect,
+.daterangepicker select.secondselect,
+.daterangepicker select.ampmselect {
+  font-size: 12px;
+  padding: 1px;
+  height: auto;
+  margin: 0;
+  cursor: default;
+  height: 30px;
+  border: 1px solid #ADB2B5;
+  line-height: 30px;
+  border-radius: 0px !important
+}
+
+.daterangepicker select.monthselect {
+  margin-right: 2%
+}
+
+.daterangepicker td.in-range {
+  background: #E4E7EA;
+  color: #73879C
+}
+
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+  background-color: #536A7F;
+  color: #fff
+}
+
+.daterangepicker th.available:hover {
+  background: #eee;
+  color: #34495E
+}
+
+.daterangepicker:before,
+.daterangepicker:after {
+  content: none
+}
+
+.daterangepicker .calendar.single {
+  margin: 0 0 4px 0
+}
+
+.daterangepicker .calendar.single .calendar-table {
+  width: 224px;
+  padding: 0 0 4px 0 !important
+}
+
+.daterangepicker .calendar.single .calendar-table thead tr:first-child th {
+  padding: 8px 5px
+}
+
+.daterangepicker .calendar.single .calendar-table thead th {
+  border-radius: 0
+}
+
+.daterangepicker.picker_1 {
+  color: #fff;
+  background: #34495E
+}
+
+.daterangepicker.picker_1 .calendar-table {
+  background: #34495E
+}
+
+.daterangepicker.picker_1 .calendar-table thead tr {
+  background: #213345
+}
+
+.daterangepicker.picker_1 .calendar-table thead tr:first-child {
+  background: #1ABB9C
+}
+
+.daterangepicker.picker_1 .calendar-table td.off {
+  background: #34495E;
+  color: #999
+}
+
+.daterangepicker.picker_1 .calendar-table td.available:hover {
+  color: #34495E
+}
+
+.daterangepicker.picker_2 .calendar-table thead tr {
+  color: #1ABB9C
+}
+
+.daterangepicker.picker_2 .calendar-table thead tr:first-child {
+  color: #73879C
+}
+
+.daterangepicker.picker_3 .calendar-table thead tr:first-child {
+  color: #fff;
+  background: #1ABB9C
+}
+
+.daterangepicker.picker_4 .calendar-table thead tr:first-child {
+  color: #fff;
+  background: #34495E
+}
+
+.daterangepicker.picker_4 .calendar-table td,
+.daterangepicker.picker_4 .calendar-table td.off {
+  background: #ECF0F1;
+  border: 1px solid #fff;
+  border-radius: 0
+}
+
+.daterangepicker.picker_4 .calendar-table td.active {
+  background: #34495E
+}
+
+.calendar-exibit .show-calendar {
+  float: none;
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  overflow: hidden
+}
+
+.calendar-exibit .show-calendar .calendar {
+  margin: 0 0 4px 0
+}
+
+.calendar-exibit .show-calendar.picker_1 {
+  background: #34495E
+}
+
+.calendar-exibit .calendar-table {
+  padding: 0 0 4px 0
+}
+
 //@import "partials/grid";
 
 @include font-face('B Yekan',
@@ -2504,17 +2664,17 @@ textarea {
     transition: 0.42s;
   }
   .alert {
-    float: left;
-    margin: 0 0 0 20px;
+    float: right;
+    margin: 0 20px 0 0 ;
     padding: 3px 10px;
     color: $white;
     //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 3px 4px 4px 3px;
+    border-radius: 3px 3px 4px 4px;
     background-color: $color_fuzzy_wuzzy_brown_approx;
     max-width: 170px;
     white-space: pre;
     position: relative;
-    left: -15px;
+    right: -15px;
     opacity: 0;
     z-index: 1;
     //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
@@ -2525,11 +2685,11 @@ textarea {
     display: block;
     height: 0;
     width: 0;
-    border-color: transparent $color_fuzzy_wuzzy_brown_approx transparent transparent;
+    border-color: transparent transparent transparent $color_fuzzy_wuzzy_brown_approx;
     border-style: solid;
     border-width: 11px 7px;
     position: absolute;
-    left: -13px;
+    right: -13px;
     top: 1px;
   }
   &.bad .alert {
@@ -4630,4 +4790,11 @@ form:after {
 /** New Styles **/
 .colorpicker {
   right: inherit;
+}
+
+.jqvmap-zoomin, .jqvmap-zoomout {
+  min-width: 10px;
+  min-height: 10px;
+  width: auto;
+  height: auto;
 }

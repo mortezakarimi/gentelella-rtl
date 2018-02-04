@@ -16,15 +16,7 @@
             <div class="col-md-3 col-sm-3 col-xs-6 tile">
                 <span>درآمد کل</span>
                 <h2>$ 231,809</h2>
-                <span class="sparkline_one" style="height: 160px;">
-                      <canvas width="200" height="60"
-                              style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                  </span>
-            </div>
-            <div class="col-md-3 col-sm-3 col-xs-6 tile">
-                <span>مجموع جلسات</span>
-                <h2>231,809</h2>
-                <span class="sparkline_two" style="height: 160px;">
+                <span class="sparkline_three" style="height: 160px;">
                       <canvas width="200" height="60"
                               style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                   </span>
@@ -33,6 +25,14 @@
                 <span>مجموع جلسات</span>
                 <h2>231,809</h2>
                 <span class="sparkline_one" style="height: 160px;">
+                      <canvas width="200" height="60"
+                              style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                  </span>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6 tile">
+                <span>مجموع جلسات</span>
+                <h2>231,809</h2>
+                <span class="sparkline_three" style="height: 160px;">
                       <canvas width="200" height="60"
                               style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
                   </span>
@@ -60,7 +60,7 @@
                     </div>
                     <div class="x_content">
                         <div class="demo-container" style="height:250px">
-                            <div id="placeholder3xx3" class="demo-placeholder" style="width: 100%; height:250px;"></div>
+                            <div id="chart_plot_03" class="demo-placeholder"></div>
                         </div>
                     </div>
                 </div>
@@ -223,8 +223,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <canvas id="canvas1" height="140" width="140"
-                                            style="margin: 15px 10px 10px 0"></canvas>
+                                    <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
                                 </td>
                                 <td>
                                     <table class="tile_info">
@@ -307,8 +306,7 @@
 
                             <div class="sidebar-widget">
                                 <h4>مشخصات تکمیل</h4>
-                                <canvas width="150" height="80" id="foo" class=""
-                                        style="width: 160px; height: 100px;"></canvas>
+                                <canvas width="150" height="80" id="chart_gauge_01" class="" style="width: 160px; height: 100px;"></canvas>
                                 <div class="goal-wrapper">
                                     <span class="gauge-value pull-left">$</span>
                                     <span id="gauge-text" class="gauge-value pull-left">3,200</span>
@@ -560,8 +558,7 @@
 
                             <div class="sidebar-widget">
                                 <h4>هدف</h4>
-                                <canvas width="150" height="80" id="foo2" class=""
-                                        style="width: 160px; height: 100px;"></canvas>
+                                <canvas width="150" height="80" id="chart_gauge_02" class="" style="width: 160px; height: 100px;"></canvas>
                                 <div class="goal-wrapper">
                                     <span class="gauge-value pull-left">$</span>
                                     <span id="gauge-text2" class="gauge-value pull-left">3,200</span>
@@ -578,303 +575,7 @@
 <!-- /page content -->
 {% endblock %}
 {% block scriptsFiles %}
-<!-- jQuery Sparklines -->
-<script src="../vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- morris.js -->
 <script src="../vendors/raphael/raphael.min.js"></script>
 <script src="../vendors/morris.js/morris.min.js"></script>
-{% endblock %}
-{% block scripts %}
-<!-- Flot -->
-<script>
-    $(document).ready(function () {
-        //random data
-        var d1 = [
-            [0, 1],
-            [1, 9],
-            [2, 6],
-            [3, 10],
-            [4, 5],
-            [5, 17],
-            [6, 6],
-            [7, 10],
-            [8, 7],
-            [9, 11],
-            [10, 35],
-            [11, 9],
-            [12, 12],
-            [13, 5],
-            [14, 3],
-            [15, 4],
-            [16, 9]
-        ];
-
-        //flot options
-        var options = {
-            series: {
-                curvedLines: {
-                    apply: true,
-                    active: true,
-                    monotonicFit: true
-                }
-            },
-            colors: ["#26B99A"],
-            grid: {
-                borderWidth: {
-                    top: 0,
-                    right: 0,
-                    bottom: 1,
-                    left: 1
-                },
-                borderColor: {
-                    bottom: "#7F8790",
-                    left: "#7F8790"
-                }
-            }
-        };
-        var plot = $.plot($("#placeholder3xx3"), [{
-            label: "Registrations",
-            data: d1,
-            lines: {
-                fillColor: "rgba(150, 202, 89, 0.12)"
-            }, //#96CA59 rgba(150, 202, 89, 0.42)
-            points: {
-                fillColor: "#fff"
-            }
-        }], options);
-    });
-</script>
-<!-- /Flot -->
-
-<!-- jQuery Sparklines -->
-<script>
-    $(document).ready(function () {
-        $(".sparkline_one").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
-            type: 'bar',
-            height: '40',
-            barWidth: 9,
-            colorMap: {
-                '7': '#a1a1a1'
-            },
-            barSpacing: 2,
-            barColor: '#26B99A'
-        });
-
-        $(".sparkline_two").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
-            type: 'line',
-            width: '200',
-            height: '40',
-            lineColor: '#26B99A',
-            fillColor: 'rgba(223, 223, 223, 0.57)',
-            lineWidth: 2,
-            spotColor: '#26B99A',
-            minSpotColor: '#26B99A'
-        });
-    });
-</script>
-<!-- /jQuery Sparklines -->
-
-<!-- Doughnut Chart -->
-<script>
-    $(document).ready(function () {
-        var options = {
-            legend: false,
-            responsive: false
-        };
-
-        new Chart(document.getElementById("canvas1"), {
-            type: 'doughnut',
-            tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-            data: {
-                labels: [
-                    "سیمبین",
-                    "بلکبری",
-                    "دیگر",
-                    "اندروید",
-                    "IOS"
-                ],
-                datasets: [{
-                    data: [15, 20, 30, 10, 30],
-                    backgroundColor: [
-                        "#BDC3C7",
-                        "#9B59B6",
-                        "#E74C3C",
-                        "#26B99A",
-                        "#3498DB"
-                    ],
-                    hoverBackgroundColor: [
-                        "#CFD4D8",
-                        "#B370CF",
-                        "#E95E4F",
-                        "#36CAAB",
-                        "#49A9EA"
-                    ]
-                }]
-            },
-            options: options
-        });
-    });
-</script>
-<!-- /Doughnut Chart -->
-
-<!-- bootstrap-daterangepicker -->
-<script type="application/javascript">
-    $(document).ready(function () {
-
-        var cb = function (start, end, label) {
-            console.log(start.toISOString(), end.toISOString(), label);
-            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        };
-
-        var optionSet1 = {
-            startDate: moment().subtract(29, 'days'),
-            endDate: moment(),
-            minDate: '01/01/2012',
-            maxDate: '12/31/2015',
-            dateLimit: {
-                days: 60
-            },
-            showDropdowns: true,
-            showWeekNumbers: true,
-            timePicker: false,
-            timePickerIncrement: 1,
-            timePicker12Hour: true,
-            ranges: {
-                'امروز': [moment(), moment()],
-                'دیروز': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                '7 روز گذشته': [moment().subtract(6, 'days'), moment()],
-                '30 روز گذشته': [moment().subtract(29, 'days'), moment()],
-                'این ماه': [moment().startOf('month'), moment().endOf('month')],
-                'ماه قبل': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-            },
-            opens: 'left',
-            buttonClasses: ['btn btn-default'],
-            applyClass: 'btn-small btn-primary',
-            cancelClass: 'btn-small',
-            format: 'MM/DD/YYYY',
-            separator: ' to ',
-            locale: {
-                applyLabel: 'ارسال',
-                cancelLabel: 'پاک',
-                fromLabel: 'از',
-                toLabel: 'به',
-                customRangeLabel: 'سفارشی',
-                daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                firstDay: 1
-            }
-        };
-        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-        $('#reportrange').daterangepicker(optionSet1, cb);
-        $('#reportrange').on('show.daterangepicker', function () {
-            console.log("show event fired");
-        });
-        $('#reportrange').on('hide.daterangepicker', function () {
-            console.log("hide event fired");
-        });
-        $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
-            console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-        });
-        $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
-            console.log("cancel event fired");
-        });
-        $('#options1').click(function () {
-            $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
-        });
-        $('#options2').click(function () {
-            $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
-        });
-        $('#destroy').click(function () {
-            $('#reportrange').data('daterangepicker').remove();
-        });
-    });
-</script>
-<!-- /bootstrap-daterangepicker -->
-
-<!-- morris.js -->
-<script>
-    $(document).ready(function () {
-        Morris.Bar({
-            element: 'graph_bar',
-            data: [
-                {"period": "فروردین", "Hours worked": 80},
-                {"period": "اردیبهشت", "Hours worked": 125},
-                {"period": "خرداد", "Hours worked": 176},
-                {"period": "تیر", "Hours worked": 224},
-                {"period": "مرداد", "Hours worked": 265},
-                {"period": "شهریور", "Hours worked": 314},
-                {"period": "مهر", "Hours worked": 347},
-                {"period": "آبان", "Hours worked": 287},
-                {"period": "آذر", "Hours worked": 240},
-                {"period": "دی", "Hours worked": 211}
-            ],
-            xkey: 'period',
-            hideHover: 'auto',
-            barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-            ykeys: ['Hours worked', 'sorned'],
-            labels: ['ساعت کار', 'تاخیر'],
-            xLabelAngle: 60,
-            resize: true
-        });
-
-        $MENU_TOGGLE.on('click', function () {
-            $(window).resize();
-        });
-    });
-</script>
-<!-- /morris.js -->
-
-<!-- Skycons -->
-<script>
-    var icons = new Skycons({
-            "color": "#73879C"
-        }),
-        list = [
-            "clear-day", "clear-night", "partly-cloudy-day",
-            "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
-            "fog"
-        ],
-        i;
-
-    for (i = list.length; i--;)
-        icons.set(list[i], list[i]);
-
-    icons.play();
-</script>
-<!-- /Skycons -->
-
-<!-- gauge.js -->
-<script>
-    var opts = {
-        lines: 12,
-        angle: 0,
-        lineWidth: 0.4,
-        pointer: {
-            length: 0.75,
-            strokeWidth: 0.042,
-            color: '#1D212A'
-        },
-        limitMax: 'false',
-        colorStart: '#1ABC9C',
-        colorStop: '#1ABC9C',
-        strokeColor: '#F0F3F3',
-        generateGradient: true
-    };
-    var target = document.getElementById('foo'),
-        gauge = new Gauge(target).setOptions(opts);
-
-    gauge.maxValue = 100;
-    gauge.animationSpeed = 32;
-    gauge.set(80);
-    gauge.setTextField(document.getElementById("gauge-text"));
-
-    var target = document.getElementById('foo2'),
-        gauge = new Gauge(target).setOptions(opts);
-
-    gauge.maxValue = 5000;
-    gauge.animationSpeed = 32;
-    gauge.set(4200);
-    gauge.setTextField(document.getElementById("gauge-text2"));
-</script>
-<!-- /gauge.js -->
 {% endblock %}
