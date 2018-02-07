@@ -1783,14 +1783,14 @@ ul {
   &.parsley-errors-list {
     list-style: none;
     color: $color_cinnabar_approx;
-    padding-left: 0;
+    padding-right: 0;
   }
   &.bar_tabs {
     overflow: visible;
     background: $color_whisper_approx;
     height: 25px;
     margin: 21px 0 14px;
-    padding-left: 14px;
+    padding-right: 14px;
     position: relative;
     z-index: 1;
     width: 100%;
@@ -1799,13 +1799,13 @@ ul {
       border: 1px solid $color_mystic_approx;
       color: $color_mine_shaft_approx !important;
       margin-top: -17px;
-      margin-left: 8px;
+      margin-right: 8px;
       background: $white;
       border-bottom: none;
       //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
       border-radius: 4px 4px 0 0;
       &.active {
-        border-right: 6px solid $color_iron_approx;
+        border-left: 6px solid $color_iron_approx;
         border-top: 0;
         margin-top: -15px;
         a {
@@ -1817,16 +1817,16 @@ ul {
         background: $color_whisper_approx;
         margin: 0;
         //Instead of the line below you could use @include border-top-right-radius($radius)
-        border-top-right-radius: 0;
+        border-top-left-radius: 0;
         &:hover {
           border: 1px solid transparent;
         }
       }
     }
-    &.right {
-      padding-right: 14px;
+    &.left {
+      padding-left: 14px;
       li {
-        float: right;
+        float: left;
       }
     }
   }
@@ -2186,7 +2186,7 @@ span {
     margin-right: 5px;
     font-weight: 500;
     margin-bottom: 5px;
-    font-family: $font_6;
+    font-family: $font_B_Yekan;
     a {
       color: $color_catskill_white_approx !important;
     }
@@ -2665,7 +2665,7 @@ textarea {
   }
   .alert {
     float: right;
-    margin: 0 20px 0 0 ;
+    margin: 0 20px 0 0;
     padding: 3px 10px;
     color: $white;
     //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
@@ -2921,7 +2921,7 @@ textarea {
   .tags {
     position: absolute;
     top: 15px;
-    left: 0;
+    right: 0;
     width: 84px;
   }
   .tag {
@@ -4169,7 +4169,7 @@ fieldset {
   width: 100%;
   border-top: 1px solid $color_alto_approx;
   padding: 10px 5px;
-  text-align: right;
+  text-align: left;
   margin-top: 10px;
   .buttonDisabled {
     cursor: not-allowed;
@@ -4275,10 +4275,16 @@ fieldset {
   border-color: $color_cinnabar_88_approx;
 }
 
+.alert-dark {
+  color: #ededed;
+  background-color: rgba(52, 73, 94, .88);
+  border-color: rgba(52, 73, 94, .88);
+}
+
 .custom-notifications {
   position: fixed;
   margin: 15px;
-  right: 0;
+  left: 0;
   float: right;
   width: 400px;
   z-index: 4000;
@@ -4730,7 +4736,7 @@ form:after {
         top: 20px;
         width: 100%;
         z-index: 4;
-        left: 0;
+        right: 0;
       }
       .step_no {
         width: 40px;
@@ -4771,16 +4777,30 @@ form:after {
       color: $color_storm_dust_approx;
     }
     &:first-child a:before {
-      left: 50%;
+      right: 50%;
     }
     &:last-child a:before {
-      right: 50%;
+      left: 50%;
       width: 50%;
-      left: auto;
+      right: auto;
     }
   }
 }
 
+/** rtl pnotify **/
+.ui-pnotify {
+  left: 35px !important;
+  right: auto !important;
+}
+
+.ui-pnotify-icon, .ui-pnotify-icon span {
+  float: right;
+  margin-left: .2em;
+}
+.ui-pnotify-closer, .ui-pnotify-sticker{
+  float: left;
+  margin-right: .2em;
+}
 .ui-pnotify.dark .ui-pnotify-container {
   color: $color_gallery_approx;
   background-color: $color_pickled_bluewood_88_approx;

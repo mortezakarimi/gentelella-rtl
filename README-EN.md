@@ -1,34 +1,34 @@
-# Gentelella RTL / قالب راستچین شده مدیریت
+# Gentelella RTL
 
-Gentelella یک قالب مدیریت راست چین شده می‌باشد که از روی قالب اصلی که در آدرس [Gentelella](https://github.com/puikinsh/gentelella) می‌توانید آن را مشاهده نمایید بوجود آمده است.
+Gentelella RTL Admin is a fork from gentelella Admin Bootstrap template.
 
-## دموی قالب
+## Theme Demo
 ![Gentelella Bootstrap Admin Template](./documentation/images/demo-template.png "Gentelella RTL Theme Browser Preview")
 
-**[اینجا می‌توانید مشاهده نمایید](https://mortezakarimi.github.io/gentelella-rtl/public/index.html)**
+**[Template Demo](https://mortezakarimi.github.io/gentelella-rtl/public/index.html)**
 
-## نصب با استفاده از مدیریت بسته ها
+## Installation via Package Manger
 
-هدف من این است که این پکیج با استفاده از تمام مدیرت بسته های مختلف قابل نصب باشد. در صورتی که مدیریت بسته مورد نظر شما در زیر وجود ندارد کافیست Pull Request دهید
+Our goal is to make it installable on different Package Manager! Do you want to use it on your favorite Package Manager and you know how? Pull request all the way! 
 
-چند روش نصب این بسته در زیر آمده است:
+As of now, this is some installation available:
 
-**نصب با استفاده از گیت هاب**
+**Install using github**
 
 ```
 git clone https://github.com/mortezakarimi/gentelella-rtl.git -b 'gh-pages'
 ```
-## چگونه همکاری کنید
-برای همکاری مطمئن شوید آخرین نسخه پایدار [Node.js](https://nodejs.org/) و [npm](https://npmjs.com) نصب باشد.
+## How to contribute
+To contribute, please ensure that you have stable [Node.js](https://nodejs.org/) and [npm](https://npmjs.com) installed.
 
-چک کنید Gulp CLI نصب باشد با استفاده از  `gulp --version`.  اگر وجود نداشت با استفاده از  این دستور نصب نمایید `npm install -g gulp`.  برای اطلاعات بیشتر در رابطه با نصب  Gulp, Gulp را مشاهده نمایید [شروع به کار](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md).
+Test if Gulp CLI is installed by running `gulp --version`.  If the command isn't found, run `npm install -g gulp`.  For more information about installing Gulp, see the Gulp's [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md).
 
-اگر `gulp`  نصب بود به کار‌های زیر بپردازید.
+If `gulp` is installed, follow the steps below.
 
-1. چنگ زدن و کپی برداری از این رپوزیتوری.
-2. اجرای `gulp`, این کار باعث باز شده gentelella در مرورگر پیشفرض شما می‌شود.
-3. و حالا شما می‌توانید کد بزنید و کد بزنید و کد...!
-4. ارسال یک pull Request
+1. Fork and clone the repo.
+2. Run `gulp`, this will open gentelella rtl on your default browser
+3. Now you can code, code and code!
+4. Submit a pull request
 
 ## Scripts included:
 * Bootstrap

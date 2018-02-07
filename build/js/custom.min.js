@@ -2130,16 +2130,22 @@ function init_daterangepicker_reservation() {
 /* SMART WIZARD */
 
 function init_SmartWizard() {
-
+    // TODO: Fix buttons order
     if (typeof ($.fn.smartWizard) === 'undefined') {
         return;
     }
     console.log('init_SmartWizard');
-
-    $('#wizard').smartWizard();
+    $('#wizard').smartWizard({
+        labelNext: 'بعدی', // label for Next button
+        labelPrevious: 'قبلی', // label for Previous button
+        labelFinish: 'پایان',  // label for Finish button
+    });
 
     $('#wizard_verticle').smartWizard({
-        transitionEffect: 'slide'
+        transitionEffect: 'slide',
+        labelNext: 'بعدی', // label for Next button
+        labelPrevious: 'قبلی', // label for Previous button
+        labelFinish: 'پایان',  // label for Finish button,
     });
 
     $('.buttonNext').addClass('btn btn-success');
@@ -2217,7 +2223,7 @@ function init_PNotify() {
     new PNotify({
         title: "PNotify",
         type: "info",
-        text: "Welcome. Try hovering over me. You can click things behind me, because I'm non-blocking.",
+        text: "خوش آمدی. سعی کنید از من دور شوید شما می توانید همه چیز را در پشت من کلیک کنید، زیرا من غیر مسدود شده هستم.",
         nonblock: {
             nonblock: true
         },
@@ -2244,7 +2250,22 @@ function init_PNotify() {
 function init_CustomNotification() {
 
     console.log('run_customtabs');
-
+    CustomTabs = function (options) {
+        $('.tabbed_notifications > div').hide();
+        $('.tabbed_notifications > div:first-of-type').show();
+        $('#custom_notifications').removeClass('dsp_none');
+        $('.notifications a').click(function (e) {
+            e.preventDefault();
+            var $this = $(this),
+                tabbed_notifications = '#' + $this.parents('.notifications').data('tabbed_notifications'),
+                others = $this.closest('li').siblings().children('a'),
+                target = $this.attr('href');
+            others.removeClass('active');
+            $this.addClass('active');
+            $(tabbed_notifications).children('div').hide();
+            $(target).show();
+        });
+    };
     if (typeof (CustomTabs) === 'undefined') {
         return;
     }
@@ -2264,23 +2285,6 @@ function init_CustomNotification() {
             cnt++;
             CustomTabs(options);
         }
-    };
-
-    CustomTabs = function (options) {
-        $('.tabbed_notifications > div').hide();
-        $('.tabbed_notifications > div:first-of-type').show();
-        $('#custom_notifications').removeClass('dsp_none');
-        $('.notifications a').click(function (e) {
-            e.preventDefault();
-            var $this = $(this),
-                tabbed_notifications = '#' + $this.parents('.notifications').data('tabbed_notifications'),
-                others = $this.closest('li').siblings().children('a'),
-                target = $this.attr('href');
-            others.removeClass('active');
-            $this.addClass('active');
-            $(tabbed_notifications).children('div').hide();
-            $(target).show();
-        });
     };
 
     CustomTabs();
