@@ -1,3 +1,5 @@
+<div dir="RTL" align="right" style="direction:rtl;text-align:right;">
+
 # Gentelella RTL / قالب راستچین شده مدیریت
 
 Gentelella یک قالب مدیریت راست چین شده می‌باشد که از روی قالب اصلی که در آدرس [Gentelella](https://github.com/puikinsh/gentelella) می‌توانید آن را مشاهده نمایید بوجود آمده است.
@@ -94,3 +96,4 @@ Let us know if you have done integration for this admin template on other platfo
 Gentelella is licensed under The MIT License (MIT). Which means that you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. But you always need to state that Colorlib is the original author of this template.
 
 Project is developed and maintained by [Colorlib](https://colorlib.com/ "Colorlib - Make Your First Blog") and Aigars Silkalns
+</div>
