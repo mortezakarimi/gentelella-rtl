@@ -1958,17 +1958,21 @@ ul.messages li {
   padding: 8px 0;
 }
 ul.messages li .message_date {
-  float: right;
-  text-align: right;
+  float: left;
+  text-align: left;
+}
+ul.messages li .message_date > .date {
+  font-size: 35px;
+  text-align: center;
 }
 ul.messages li .message_wrapper {
-  margin-left: 50px;
-  margin-right: 40px;
+  margin-right: 50px;
+  margin-left: 40px;
 }
 ul.messages li .message_wrapper blockquote {
   padding: 0 10px;
   margin: 0;
-  border-left: 5px solid #ededed;
+  border-right: 5px solid #ededed;
 }
 ul.messages li .message_wrapper h4.heading {
   font-weight: 600;
@@ -1980,7 +1984,7 @@ ul.messages li .message_wrapper h4.heading {
 ul.messages li img.avatar {
   height: 32px;
   width: 32px;
-  float: left;
+  float: right;
   display: inline-block;
   border-radius: 2px;
   padding: 2px;

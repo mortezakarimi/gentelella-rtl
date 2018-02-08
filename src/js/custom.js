@@ -2956,16 +2956,18 @@ function init_morris_charts() {
         Morris.Bar({
             element: 'graph_bar',
             data: [
-                {device: 'آیفون 4', geekbench: 380},
-                {device: 'آیفون 4S', geekbench: 655},
-                {device: 'آیفون 3GS', geekbench: 275},
-                {device: 'آیفون 5', geekbench: 1571},
-                {device: 'آیفون 5S', geekbench: 655},
-                {device: 'آیفون 6', geekbench: 2154},
-                {device: 'آیفون 6 پلاس', geekbench: 1144},
-                {device: 'آیفون 6S', geekbench: 2371},
+                {device: 'دیگر', geekbench: 1371},
                 {device: 'آیفون 6S پلاس', geekbench: 1471},
-                {device: 'دیگر', geekbench: 1371}
+                {device: 'آیفون 6S', geekbench: 2371},
+                {device: 'آیفون 6 پلاس', geekbench: 1144},
+                {device: 'آیفون 6', geekbench: 2154},
+                {device: 'آیفون 5S', geekbench: 655},
+                {device: 'آیفون 5', geekbench: 1571},
+                {device: 'آیفون 3GS', geekbench: 275},
+                {device: 'آیفون 4S', geekbench: 655},
+                {device: 'آیفون 4', geekbench: 380},
+
+
             ],
             xkey: 'device',
             ykeys: ['geekbench'],

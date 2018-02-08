@@ -1919,16 +1919,20 @@ ul {
       border-bottom: 1px dotted $color_mercury_approx;
       padding: 8px 0;
       .message_date {
-        float: right;
-        text-align: right;
+        float: left;
+        text-align: left;
+        & > .date {
+          font-size: 35px;
+          text-align: center;
+        }
       }
       .message_wrapper {
-        margin-left: 50px;
-        margin-right: 40px;
+        margin-right: 50px;
+        margin-left: 40px;
         blockquote {
           padding: 0 10px;
           margin: 0;
-          border-left: 5px solid $color_gallery_approx;
+          border-right: 5px solid $color_gallery_approx;
         }
         h4.heading {
           font-weight: 600;
@@ -1941,7 +1945,7 @@ ul {
       img.avatar {
         height: 32px;
         width: 32px;
-        float: left;
+        float: right;
         display: inline-block;
         //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
         border-radius: 2px;
@@ -4797,10 +4801,12 @@ form:after {
   float: right;
   margin-left: .2em;
 }
-.ui-pnotify-closer, .ui-pnotify-sticker{
+
+.ui-pnotify-closer, .ui-pnotify-sticker {
   float: left;
   margin-right: .2em;
 }
+
 .ui-pnotify.dark .ui-pnotify-container {
   color: $color_gallery_approx;
   background-color: $color_pickled_bluewood_88_approx;
