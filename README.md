@@ -20,21 +20,27 @@ Gentelella یک قالب مدیریت راست چین شده می‌باشد ک�
 
 **نصب با استفاده از گیت هاب**
 
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
 ```
 git clone https://github.com/mortezakarimi/gentelella-rtl.git -b 'gh-pages'
 ```
+<div>
 
 **Bower**
 
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
 ```
 bower install gentelella --save
 ```
+</div>
 
 **npm**
 
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
 ```
 npm install gentelella --save
 ```
+</div>
 
 ## چگونه همکاری کنید
 برای همکاری مطمئن شوید آخرین نسخه پایدار [Node.js](https://nodejs.org/) و [npm](https://npmjs.com) نصب باشد.
@@ -122,7 +128,11 @@ npm install gentelella --save
 </div>
 
 ## License information
+
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
+
 Gentelella RTL is licensed under The MIT License (MIT). Which means that you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. But you always need to state that Colorlib is the original author of this template.
 
 Project is developed and maintained by [Morteza Karimi](https://morteza-karimi.ir/ "Morteza Karimi - Web Developer")
+</div>
 </div>
