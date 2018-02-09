@@ -126,9 +126,10 @@ npm install gentelella --save
 
 </div>
 
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
+
 ## License information
 
-<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
 
 Gentelella RTL is licensed under The MIT License (MIT). Which means that you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. But you always need to state that Colorlib is the original author of this template.
 
