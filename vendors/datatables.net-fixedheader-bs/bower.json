@@ -1,6 +1,6 @@
 {
     "name": "datatables.net-fixedheader-bs",
-    "description": "FixedHeader for DataTables with styling for [Bootstrap](http://getbootstrap.com/)",
+    "description": "FixedHeader for DataTables with styling for [Bootstrap 3](http://getbootstrap.com/)",
     "main": [
         "css/fixedHeader.bootstrap.css"
     ],

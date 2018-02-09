@@ -1,6 +1,6 @@
 {
   "name": "datatables.net-bs",
-  "description": "DataTables for jQuery with styling for [Bootstrap](http://getbootstrap.com/)",
+  "description": "DataTables for jQuery with styling for [Bootstrap 3](http://getbootstrap.com/)",
   "main": [
     "js/dataTables.bootstrap.js",
     "css/dataTables.bootstrap.css"
@@ -35,12 +35,12 @@
   ],
   "homepage": "https://datatables.net",
   "license": "MIT",
-  "version": "1.10.15",
-  "_release": "1.10.15",
+  "version": "1.10.16",
+  "_release": "1.10.16",
   "_resolution": {
     "type": "version",
-    "tag": "1.10.15",
-    "commit": "f138ff1a8e0d04113bfbeaeabec2920bf3cb6399"
+    "tag": "1.10.16",
+    "commit": "76197569457eacd7ead7f223a651d6ff06d6fbb1"
   },
   "_source": "https://github.com/DataTables/Dist-DataTables-Bootstrap.git",
   "_target": "^1.10.11",

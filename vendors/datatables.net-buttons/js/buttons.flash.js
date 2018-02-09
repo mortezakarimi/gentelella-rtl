@@ -1,6 +1,6 @@
 /*!
  * Flash export buttons for Buttons and DataTables.
- * 2015 SpryMedia Ltd - datatables.net/license
+ * 2015-2017 SpryMedia Ltd - datatables.net/license
  *
  * ZeroClipbaord - MIT license
  * Copyright (c) 2012 Joseph Huckaby
@@ -492,35 +492,6 @@ var _glue = function ( flash, node )
 };
 
 /**
- * Get the file name for an exported file.
- *
- * @param {object}  config       Button configuration
- * @param {boolean} incExtension Include the file name extension
- */
-var _filename = function ( config, incExtension )
-{
-	// Backwards compatibility
-	var filename = config.filename === '*' && config.title !== '*' && config.title !== undefined ?
-		config.title :
-		config.filename;
-
-	if ( typeof filename === 'function' ) {
-		filename = filename();
-	}
-
-	if ( filename.indexOf( '*' ) !== -1 ) {
-		filename = $.trim( filename.replace( '*', $('title').text() ) );
-	}
-
-	// Strip characters which the OS will object to
-	filename = filename.replace(/[^a-zA-Z0-9_\u00A1-\uFFFF\.,\-_ !\(\)]/g, "");
-
-	return incExtension === undefined || incExtension === true ?
-		filename+config.extension :
-		filename;
-};
-
-/**
  * Get the sheet name for Excel exports.
  *
  * @param {object}  config       Button configuration
@@ -534,24 +505,6 @@ var _sheetname = function ( config )
 	}
 
 	return sheetName;
-};
-
-/**
- * Get the title for an exported file.
- *
- * @param {object}  config  Button configuration
- */
-var _title = function ( config )
-{
-	var title = config.title;
-
-	if ( typeof title === 'function' ) {
-		title = title();
-	}
-
-	return title.indexOf( '*' ) !== -1 ?
-		title.replace( '*', $('title').text() || 'Exported data' ) :
-		title;
 };
 
 /**
@@ -676,6 +629,10 @@ var flashButton = {
 
 	title: '*',
 
+	messageTop: '*',
+
+	messageBottom: '*',
+
 	filename: '*',
 
 	extension: '.csv',
@@ -723,13 +680,13 @@ function _createNode( doc, nodeName, opts ){
 			$(tempNode).attr( opts.attr );
 		}
 
-		if( opts.children ) {
+		if ( opts.children ) {
 			$.each( opts.children, function ( key, value ) {
 				tempNode.appendChild( value );
-			});
+			} );
 		}
 
-		if( opts.text ) {
+		if ( opts.text !== null && opts.text !== undefined ) {
 			tempNode.appendChild( doc.createTextNode( opts.text ) );
 		}
 	}
@@ -914,6 +871,7 @@ var excelStrings = {
 		'<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'+
 		'<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="x14ac" xmlns:x14ac="http://schemas.microsoft.com/office/spreadsheetml/2009/9/ac">'+
 			'<sheetData/>'+
+			'<mergeCells count="0"/>'+
 		'</worksheet>',
 
 	"xl/styles.xml":
@@ -1120,7 +1078,7 @@ var _excelSpecials = [
  */
 
 // Set the default SWF path
-DataTable.Buttons.swfPath = '//cdn.datatables.net/buttons/1.2.4/swf/flashExport.swf';
+DataTable.Buttons.swfPath = '//cdn.datatables.net/buttons/'+DataTable.Buttons.version+'/swf/flashExport.swf';
 
 // Method to allow Flash buttons to be resized when made visible - as they are
 // of zero height and width if initialised hidden
@@ -1154,10 +1112,26 @@ DataTable.ext.buttons.copyFlash = $.extend( {}, flashButton, {
 		this.processing( true );
 
 		var flash = config._flash;
-		var data = _exportData( dt, config );
-		var output = config.customize ?
-			config.customize( data.str, config ) :
-			data.str;
+		var exportData = _exportData( dt, config );
+		var info = dt.buttons.exportInfo( config );
+		var newline = _newLine(config);
+		var output = exportData.str;
+
+		if ( info.title ) {
+			output = info.title + newline + newline + output;
+		}
+
+		if ( info.messageTop ) {
+			output = info.messageTop + newline + newline + output;
+		}
+
+		if ( info.messageBottom ) {
+			output = output + newline + newline + info.messageBottom;
+		}
+
+		if ( config.customize ) {
+			output = config.customize( output, config );
+		}
 
 		flash.setAction( 'copy' );
 		_setText( flash, output );
@@ -1338,9 +1312,34 @@ DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
 			config.customizeData( data );
 		}
 
+		var mergeCells = function ( row, colspan ) {
+			var mergeCells = $('mergeCells', rels);
+
+			mergeCells[0].appendChild( _createNode( rels, 'mergeCell', {
+				attr: {
+					ref: 'A'+row+':'+createCellPos(colspan)+row
+				}
+			} ) );
+			mergeCells.attr( 'count', mergeCells.attr( 'count' )+1 );
+			$('row:eq('+(row-1)+') c', rels).attr( 's', '51' ); // centre
+		};
+
+		// Title and top messages
+		var exportInfo = dt.buttons.exportInfo( config );
+		if ( exportInfo.title ) {
+			addRow( [exportInfo.title], rowPos );
+			mergeCells( rowPos, data.header.length-1 );
+		}
+
+		if ( exportInfo.messageTop ) {
+			addRow( [exportInfo.messageTop], rowPos );
+			mergeCells( rowPos, data.header.length-1 );
+		}
+
+		// Table itself
 		if ( config.header ) {
 			addRow( data.header, rowPos );
-			$('row c', rels).attr( 's', '2' ); // bold
+			$('row:last c', rels).attr( 's', '2' ); // bold
 		}
 
 		for ( var n=0, ie=data.body.length ; n<ie ; n++ ) {
@@ -1350,6 +1349,12 @@ DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
 		if ( config.footer && data.footer ) {
 			addRow( data.footer, rowPos);
 			$('row:last c', rels).attr( 's', '2' ); // bold
+		}
+
+		// Below the table
+		if ( exportInfo.messageBottom ) {
+			addRow( [exportInfo.messageBottom], rowPos );
+			mergeCells( rowPos, data.header.length-1 );
 		}
 
 		// Set column widths
@@ -1375,7 +1380,7 @@ DataTable.ext.buttons.excelFlash = $.extend( {}, flashButton, {
 		_xlsxToStrings( xlsx );
 
 		flash.setAction( 'excel' );
-		flash.setFileName( _filename( config ) );
+		flash.setFileName( exportInfo.filename );
 		flash.setSheetData( xlsx );
 		_setText( flash, '' );
 
@@ -1401,6 +1406,7 @@ DataTable.ext.buttons.pdfFlash = $.extend( {}, flashButton, {
 		// Set the text
 		var flash = config._flash;
 		var data = dt.buttons.exportData( config.exportOptions );
+		var info = dt.buttons.exportInfo( config );
 		var totalWidth = dt.table().node().offsetWidth;
 
 		// Calculate the column width ratios for layout of the table in the PDF
@@ -1409,17 +1415,18 @@ DataTable.ext.buttons.pdfFlash = $.extend( {}, flashButton, {
 		} );
 
 		flash.setAction( 'pdf' );
-		flash.setFileName( _filename( config ) );
+		flash.setFileName( info.filename );
 
 		_setText( flash, JSON.stringify( {
-			title:       _filename(config, false),
-			message: typeof config.message == 'function' ? config.message(dt, button, config) : config.message,
-			colWidth:    ratios.toArray(),
-			orientation: config.orientation,
-			size:        config.pageSize,
-			header:      config.header ? data.header : null,
-			footer:      config.footer ? data.footer : null,
-			body:        data.body
+			title:         info.title || '',
+			messageTop:    info.messageTop || '',
+			messageBottom: info.messageBottom || '',
+			colWidth:      ratios.toArray(),
+			orientation:   config.orientation,
+			size:          config.pageSize,
+			header:        config.header ? data.header : null,
+			footer:        config.footer ? data.footer : null,
+			body:          data.body
 		} ) );
 
 		this.processing( false );
@@ -1430,8 +1437,6 @@ DataTable.ext.buttons.pdfFlash = $.extend( {}, flashButton, {
 	orientation: 'portrait',
 
 	pageSize: 'A4',
-
-	message: '',
 
 	newline: '\n'
 } );

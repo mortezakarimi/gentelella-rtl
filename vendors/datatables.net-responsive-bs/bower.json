@@ -1,6 +1,6 @@
 {
     "name": "datatables.net-responsive-bs",
-    "description": "Responsive for DataTables with styling for [Bootstrap](http://getbootstrap.com/)",
+    "description": "Responsive for DataTables with styling for [Bootstrap 3](http://getbootstrap.com/)",
     "main": [
         "js/responsive.bootstrap.js",
         "css/responsive.bootstrap.css"

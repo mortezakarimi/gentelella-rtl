@@ -53,7 +53,7 @@ Field.prototype = {
   // or `undefined` if field is not in the given `group`.
   whenValidate: function ({force, group} =  {}) {
     // do not validate a field if not the same as given validation group
-    this.refreshConstraints();
+    this.refresh();
     if (group && !this._isInGroup(group))
       return;
 
@@ -117,7 +117,7 @@ Field.prototype = {
   whenValid: function ({force = false, value, group, _refreshed} = {}) {
     // Recompute options and rebind constraints to have latest changes
     if (!_refreshed)
-      this.refreshConstraints();
+      this.refresh();
     // do not validate a field if not the same as given validation group
     if (group && !this._isInGroup(group))
       return;
@@ -201,10 +201,19 @@ Field.prototype = {
     this._trigger('destroy');
   },
 
-  // Actualize options that could have change since previous validation
-  // Re-bind accordingly constraints (could be some new, removed or updated)
-  refreshConstraints: function () {
+  // Actualize options and rebind constraints
+  refresh: function () {
+    this._refreshConstraints();
+    return this;
+  },
+
+  _refreshConstraints: function () {
     return this.actualizeOptions()._bindConstraints();
+  },
+
+  refreshConstraints: function() {
+    Utils.warnOnce("Parsley's refreshConstraints is deprecated. Please use refresh");
+    return this.refresh();
   },
 
   /**
@@ -314,7 +323,7 @@ Field.prototype = {
 
 
     // html5 types
-    var type = this.element.type;
+    var type = Utils.getType(this.element);
 
     // Small special case here for HTML5 number: integer validator if step attribute is undefined or an integer value, number otherwise
     if ('number' === type) {

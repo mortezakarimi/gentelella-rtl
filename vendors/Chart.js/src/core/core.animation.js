@@ -1,5 +1,5 @@
-/* global window: false */
-'use strict';
+/*global window: false */
+"use strict";
 
 module.exports = function(Chart) {
 
@@ -7,20 +7,19 @@ module.exports = function(Chart) {
 
 	Chart.defaults.global.animation = {
 		duration: 1000,
-		easing: 'easeOutQuart',
+		easing: "easeOutQuart",
 		onProgress: helpers.noop,
 		onComplete: helpers.noop
 	};
 
 	Chart.Animation = Chart.Element.extend({
-		chart: null, // the animation associated chart instance
-		currentStep: 0, // the current animation step
+		currentStep: null, // the current animation step
 		numSteps: 60, // default number of steps
-		easing: '', // the easing to use for this animation
+		easing: "", // the easing to use for this animation
 		render: null, // render function used by the animation service
 
 		onAnimationProgress: null, // user specified callback to fire on each step of the animation
-		onAnimationComplete: null, // user specified callback to fire when the animation finishes
+		onAnimationComplete: null // user specified callback to fire when the animation finishes
 	});
 
 	Chart.animationService = {
@@ -28,49 +27,42 @@ module.exports = function(Chart) {
 		animations: [],
 		dropFrames: 0,
 		request: null,
-
-		/**
-		 * @param {Chart} chart - The chart to animate.
-		 * @param {Chart.Animation} animation - The animation that we will animate.
-		 * @param {Number} duration - The animation duration in ms.
-		 * @param {Boolean} lazy - if true, the chart is not marked as animating to enable more responsive interactions
-		 */
-		addAnimation: function(chart, animation, duration, lazy) {
-			var animations = this.animations;
-			var i, ilen;
-
-			animation.chart = chart;
+		addAnimation: function(chartInstance, animationObject, duration, lazy) {
+			var me = this;
 
 			if (!lazy) {
-				chart.animating = true;
+				chartInstance.animating = true;
 			}
 
-			for (i=0, ilen=animations.length; i < ilen; ++i) {
-				if (animations[i].chart === chart) {
-					animations[i] = animation;
+			for (var index = 0; index < me.animations.length; ++index) {
+				if (me.animations[index].chartInstance === chartInstance) {
+					// replacing an in progress animation
+					me.animations[index].animationObject = animationObject;
 					return;
 				}
 			}
 
-			animations.push(animation);
+			me.animations.push({
+				chartInstance: chartInstance,
+				animationObject: animationObject
+			});
 
 			// If there are no animations queued, manually kickstart a digest, for lack of a better word
-			if (animations.length === 1) {
-				this.requestAnimationFrame();
+			if (me.animations.length === 1) {
+				me.requestAnimationFrame();
 			}
 		},
-
-		cancelAnimation: function(chart) {
-			var index = helpers.findIndex(this.animations, function(animation) {
-				return animation.chart === chart;
+		// Cancel the animation for a given chart instance
+		cancelAnimation: function(chartInstance) {
+			var index = helpers.findIndex(this.animations, function(animationWrapper) {
+				return animationWrapper.chartInstance === chartInstance;
 			});
 
 			if (index !== -1) {
 				this.animations.splice(index, 1);
-				chart.animating = false;
+				chartInstance.animating = false;
 			}
 		},
-
 		requestAnimationFrame: function() {
 			var me = this;
 			if (me.request === null) {
@@ -83,12 +75,9 @@ module.exports = function(Chart) {
 				});
 			}
 		},
-
-		/**
-		 * @private
-		 */
 		startDigest: function() {
 			var me = this;
+
 			var startTime = Date.now();
 			var framesToDrop = 0;
 
@@ -97,72 +86,46 @@ module.exports = function(Chart) {
 				me.dropFrames = me.dropFrames % 1;
 			}
 
-			me.advance(1 + framesToDrop);
+			var i = 0;
+			while (i < me.animations.length) {
+				if (me.animations[i].animationObject.currentStep === null) {
+					me.animations[i].animationObject.currentStep = 0;
+				}
+
+				me.animations[i].animationObject.currentStep += 1 + framesToDrop;
+
+				if (me.animations[i].animationObject.currentStep > me.animations[i].animationObject.numSteps) {
+					me.animations[i].animationObject.currentStep = me.animations[i].animationObject.numSteps;
+				}
+
+				me.animations[i].animationObject.render(me.animations[i].chartInstance, me.animations[i].animationObject);
+				if (me.animations[i].animationObject.onAnimationProgress && me.animations[i].animationObject.onAnimationProgress.call) {
+					me.animations[i].animationObject.onAnimationProgress.call(me.animations[i].chartInstance, me.animations[i]);
+				}
+
+				if (me.animations[i].animationObject.currentStep === me.animations[i].animationObject.numSteps) {
+					if (me.animations[i].animationObject.onAnimationComplete && me.animations[i].animationObject.onAnimationComplete.call) {
+						me.animations[i].animationObject.onAnimationComplete.call(me.animations[i].chartInstance, me.animations[i]);
+					}
+
+					// executed the last frame. Remove the animation.
+					me.animations[i].chartInstance.animating = false;
+
+					me.animations.splice(i, 1);
+				} else {
+					++i;
+				}
+			}
 
 			var endTime = Date.now();
+			var dropFrames = (endTime - startTime) / me.frameDuration;
 
-			me.dropFrames += (endTime - startTime) / me.frameDuration;
+			me.dropFrames += dropFrames;
 
 			// Do we have more stuff to animate?
 			if (me.animations.length > 0) {
 				me.requestAnimationFrame();
 			}
-		},
-
-		/**
-		 * @private
-		 */
-		advance: function(count) {
-			var animations = this.animations;
-			var animation, chart;
-			var i = 0;
-
-			while (i < animations.length) {
-				animation = animations[i];
-				chart = animation.chart;
-
-				animation.currentStep = (animation.currentStep || 0) + count;
-				animation.currentStep = Math.min(animation.currentStep, animation.numSteps);
-
-				helpers.callback(animation.render, [chart, animation], chart);
-				helpers.callback(animation.onAnimationProgress, [animation], chart);
-
-				if (animation.currentStep >= animation.numSteps) {
-					helpers.callback(animation.onAnimationComplete, [animation], chart);
-					chart.animating = false;
-					animations.splice(i, 1);
-				} else {
-					++i;
-				}
-			}
 		}
 	};
-
-	/**
-	 * Provided for backward compatibility, use Chart.Animation instead
-	 * @prop Chart.Animation#animationObject
-	 * @deprecated since version 2.6.0
-	 * @todo remove at version 3
-	 */
-	Object.defineProperty(Chart.Animation.prototype, 'animationObject', {
-		get: function() {
-			return this;
-		}
-	});
-
-	/**
-	 * Provided for backward compatibility, use Chart.Animation#chart instead
-	 * @prop Chart.Animation#chartInstance
-	 * @deprecated since version 2.6.0
-	 * @todo remove at version 3
-	 */
-	Object.defineProperty(Chart.Animation.prototype, 'chartInstance', {
-		get: function() {
-			return this.chart;
-		},
-		set: function(value) {
-			this.chart = value;
-		}
-	});
-
 };

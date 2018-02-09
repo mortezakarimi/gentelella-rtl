@@ -85,6 +85,7 @@ ECharts-GL is an extension pack of echarts, which providing 3D plots, globe visu
 
 + [echarts-python](https://github.com/yufeiminds/echarts-python) by yufeiminds
 + [krisk](https://github.com/napjon/krisk) by napjon
++ [pyecharts](https://github.com/chenjiandongx/pyecharts) by chenjiandong
 
 #### R
 
@@ -116,6 +117,14 @@ ECharts-GL is an extension pack of echarts, which providing 3D plots, globe visu
 
 + [Echarts-PHP](https://github.com/hisune/Echarts-PHP) by hisune
 
+#### Node
+
++ [Node-Echarts](https://github.com/suxiaoxin/node-echarts) by suxiaoxin
+
+## Build
+
+Check this tutorial [Create Custom Build of ECharts](https://ecomfe.github.io/echarts-doc/public/en/tutorial.html#Create%20Custom%20Build%20of%20ECharts)
+ please.
 
 ## License
 

@@ -28,13 +28,13 @@
     "test",
     "tests"
   ],
-  "_release": "3a45b04e09",
+  "_release": "859544e4d6",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "3a45b04e099bdaee5152b39eef21d6568d35c86d"
+    "commit": "859544e4d6cdaa9b5b034747e0e77e29b431cb88"
   },
-  "_source": "https://github.com/christianesperar/jqvmap.git",
+  "_source": "https://github.com/manifestinteractive/jqvmap.git",
   "_target": "master",
-  "_originalSource": "https://github.com/christianesperar/jqvmap.git"
+  "_originalSource": "https://github.com/manifestinteractive/jqvmap.git"
 }

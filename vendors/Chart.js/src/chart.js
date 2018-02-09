@@ -4,18 +4,16 @@
 var Chart = require('./core/core.js')();
 
 require('./core/core.helpers')(Chart);
-require('./platforms/platform.js')(Chart);
-require('./core/core.canvasHelpers')(Chart);
 require('./core/core.element')(Chart);
-require('./core/core.plugin.js')(Chart);
 require('./core/core.animation')(Chart);
 require('./core/core.controller')(Chart);
 require('./core/core.datasetController')(Chart);
 require('./core/core.layoutService')(Chart);
 require('./core/core.scaleService')(Chart);
-require('./core/core.ticks.js')(Chart);
+require('./core/core.plugin.js')(Chart);
 require('./core/core.scale')(Chart);
-require('./core/core.interaction')(Chart);
+require('./core/core.title')(Chart);
+require('./core/core.legend')(Chart);
 require('./core/core.tooltip')(Chart);
 
 require('./elements/element.arc')(Chart);
@@ -47,18 +45,4 @@ require('./charts/Chart.PolarArea')(Chart);
 require('./charts/Chart.Radar')(Chart);
 require('./charts/Chart.Scatter')(Chart);
 
-// Loading built-it plugins
-var plugins = [];
-
-plugins.push(
-    require('./plugins/plugin.filler.js')(Chart),
-    require('./plugins/plugin.legend.js')(Chart),
-    require('./plugins/plugin.title.js')(Chart)
-);
-
-Chart.plugins.register(plugins);
-
-module.exports = Chart;
-if (typeof window !== 'undefined') {
-	window.Chart = Chart;
-}
+window.Chart = module.exports = Chart;

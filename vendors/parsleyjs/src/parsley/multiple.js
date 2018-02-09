@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Utils from './utils';
 
 var Multiple = function () {
   this.__class__ = 'FieldMultiple';
@@ -12,8 +13,8 @@ Multiple.prototype = {
     return this;
   },
 
-  // See `Field.refreshConstraints()`
-  refreshConstraints: function () {
+  // See `Field._refreshConstraints()`
+  _refreshConstraints: function () {
     var fieldConstraints;
 
     this.constraints = [];
@@ -34,7 +35,7 @@ Multiple.prototype = {
         continue;
       }
 
-      fieldConstraints = this.$elements[i].data('FieldMultiple').refreshConstraints().constraints;
+      fieldConstraints = this.$elements[i].data('FieldMultiple')._refreshConstraints().constraints;
 
       for (var j = 0; j < fieldConstraints.length; j++)
         this.addConstraint(fieldConstraints[j].name, fieldConstraints[j].requirements, fieldConstraints[j].priority, fieldConstraints[j].isDomConstraint);
@@ -53,11 +54,12 @@ Multiple.prototype = {
 
     // Radio input case
     if (this.element.nodeName === 'INPUT') {
-      if (this.element.type === 'radio')
+      var type = Utils.getType(this.element);
+      if (type === 'radio')
         return this._findRelated().filter(':checked').val() || '';
 
       // checkbox input case
-      if (this.element.type === 'checkbox') {
+      if (type === 'checkbox') {
         var values = [];
 
         this._findRelated().filter(':checked').each(function () {

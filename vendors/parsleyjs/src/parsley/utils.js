@@ -45,12 +45,15 @@ var Utils = {
     element.setAttribute(this.dasherize(namespace + attr), String(value));
   },
 
+  getType: function(element) {
+    return element.getAttribute('type') || 'text';
+  },
+
   generateID: function () {
     return '' + globalID++;
   },
 
   /** Third party functions **/
-  // Zepto deserialize function
   deserializeValue: function (value) {
     var num;
 
@@ -60,7 +63,7 @@ var Utils = {
         (value == "false" ? false :
         value == "null" ? null :
         !isNaN(num = Number(value)) ? num :
-        /^[\[\{]/.test(value) ? $.parseJSON(value) :
+        /^[\[\{]/.test(value) ? JSON.parse(value) :
         value)
         : value;
     } catch (e) { return value; }

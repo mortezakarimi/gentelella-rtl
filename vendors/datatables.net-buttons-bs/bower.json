@@ -1,6 +1,6 @@
 {
     "name": "datatables.net-buttons-bs",
-    "description": "Buttons for DataTables with styling for [Bootstrap](http://getbootstrap.com/)",
+    "description": "Buttons for DataTables with styling for [Bootstrap 3](http://getbootstrap.com/)",
     "main": [
         "js/buttons.bootstrap.js",
         "css/buttons.bootstrap.css"

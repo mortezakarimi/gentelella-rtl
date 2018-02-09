@@ -1,119 +1,104 @@
-'use strict';
-
-var color = require('chartjs-color');
+"use strict";
 
 module.exports = function(Chart) {
 
-	var helpers = Chart.helpers;
+  var helpers = Chart.helpers;
 
-	function interpolate(start, view, model, ease) {
-		var keys = Object.keys(model);
-		var i, ilen, key, actual, origin, target, type, c0, c1;
+  Chart.elements = {};
 
-		for (i=0, ilen=keys.length; i<ilen; ++i) {
-			key = keys[i];
+  Chart.Element = function(configuration) {
+    helpers.extend(this, configuration);
+    this.initialize.apply(this, arguments);
+  };
 
-			target = model[key];
+  helpers.extend(Chart.Element.prototype, {
 
-			// if a value is added to the model after pivot() has been called, the view
-			// doesn't contain it, so let's initialize the view to the target value.
-			if (!view.hasOwnProperty(key)) {
-				view[key] = target;
-			}
+    initialize: function() {
+      this.hidden = false;
+    },
 
-			actual = view[key];
+    pivot: function() {
+      var me = this;
+      if (!me._view) {
+        me._view = helpers.clone(me._model);
+      }
+      me._start = helpers.clone(me._view);
+      return me;
+    },
 
-			if (actual === target || key[0] === '_') {
-				continue;
-			}
+    transition: function(ease) {
+      var me = this;
+      
+      if (!me._view) {
+        me._view = helpers.clone(me._model);
+      }
 
-			if (!start.hasOwnProperty(key)) {
-				start[key] = actual;
-			}
+      // No animation -> No Transition
+      if (ease === 1) {
+        me._view = me._model;
+        me._start = null;
+        return me;
+      }
 
-			origin = start[key];
+      if (!me._start) {
+        me.pivot();
+      }
 
-			type = typeof(target);
+      helpers.each(me._model, function(value, key) {
 
-			if (type === typeof(origin)) {
-				if (type === 'string') {
-					c0 = color(origin);
-					if (c0.valid) {
-						c1 = color(target);
-						if (c1.valid) {
-							view[key] = c1.mix(c0, ease).rgbString();
-							continue;
-						}
-					}
-				} else if (type === 'number' && isFinite(origin) && isFinite(target)) {
-					view[key] = origin + (target - origin) * ease;
-					continue;
-				}
-			}
+        if (key[0] === '_') {
+          // Only non-underscored properties
+        }
 
-			view[key] = target;
-		}
-	}
+        // Init if doesn't exist
+        else if (!me._view.hasOwnProperty(key)) {
+          if (typeof value === 'number' && !isNaN(me._view[key])) {
+            me._view[key] = value * ease;
+          } else {
+            me._view[key] = value;
+          }
+        }
 
-	Chart.elements = {};
+        // No unnecessary computations
+        else if (value === me._view[key]) {
+          // It's the same! Woohoo!
+        }
 
-	Chart.Element = function(configuration) {
-		helpers.extend(this, configuration);
-		this.initialize.apply(this, arguments);
-	};
+        // Color transitions if possible
+        else if (typeof value === 'string') {
+          try {
+            var color = helpers.color(me._model[key]).mix(helpers.color(me._start[key]), ease);
+            me._view[key] = color.rgbString();
+          } catch (err) {
+            me._view[key] = value;
+          }
+        }
+        // Number transitions
+        else if (typeof value === 'number') {
+          var startVal = me._start[key] !== undefined && isNaN(me._start[key]) === false ? me._start[key] : 0;
+          me._view[key] = ((me._model[key] - startVal) * ease) + startVal;
+        }
+        // Everything else
+        else {
+          me._view[key] = value;
+        }
+      }, me);
 
-	helpers.extend(Chart.Element.prototype, {
+      return me;
+    },
 
-		initialize: function() {
-			this.hidden = false;
-		},
+    tooltipPosition: function() {
+      return {
+        x: this._model.x,
+        y: this._model.y
+      };
+    },
 
-		pivot: function() {
-			var me = this;
-			if (!me._view) {
-				me._view = helpers.clone(me._model);
-			}
-			me._start = {};
-			return me;
-		},
+    hasValue: function() {
+      return helpers.isNumber(this._model.x) && helpers.isNumber(this._model.y);
+    }
+  });
 
-		transition: function(ease) {
-			var me = this;
-			var model = me._model;
-			var start = me._start;
-			var view = me._view;
+  Chart.Element.extend = helpers.inherits;
 
-			// No animation -> No Transition
-			if (!model || ease === 1) {
-				me._view = model;
-				me._start = null;
-				return me;
-			}
-
-			if (!view) {
-				view = me._view = {};
-			}
-
-			if (!start) {
-				start = me._start = {};
-			}
-
-			interpolate(start, view, model, ease);
-
-			return me;
-		},
-
-		tooltipPosition: function() {
-			return {
-				x: this._model.x,
-				y: this._model.y
-			};
-		},
-
-		hasValue: function() {
-			return helpers.isNumber(this._model.x) && helpers.isNumber(this._model.y);
-		}
-	});
-
-	Chart.Element.extend = helpers.inherits;
 };

@@ -1,12 +1,12 @@
 {
   "name": "echarts",
   "homepage": "https://github.com/ecomfe/echarts",
-  "version": "3.6.2",
-  "_release": "3.6.2",
+  "version": "3.8.5",
+  "_release": "3.8.5",
   "_resolution": {
     "type": "version",
-    "tag": "3.6.2",
-    "commit": "31c35216b64ea5b9397829aefe57b8a1bc185e20"
+    "tag": "3.8.5",
+    "commit": "eb95d20f527c5e91f98579647c6343b07b4f8c6e"
   },
   "_source": "https://github.com/ecomfe/echarts.git",
   "_target": "^3.1.7",

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = function(Chart) {
 
@@ -7,9 +7,9 @@ module.exports = function(Chart) {
 
 	defaults.doughnut = {
 		animation: {
-			// Boolean - Whether we animate the rotation of the Doughnut
+			//Boolean - Whether we animate the rotation of the Doughnut
 			animateRotate: true,
-			// Boolean - Whether we animate scaling the Doughnut from the centre
+			//Boolean - Whether we animate scaling the Doughnut from the centre
 			animateScale: false
 		},
 		aspectRatio: 1,
@@ -35,7 +35,7 @@ module.exports = function(Chart) {
 			}
 
 			text.push('</ul>');
-			return text.join('');
+			return text.join("");
 		},
 		legend: {
 			labels: {
@@ -46,7 +46,7 @@ module.exports = function(Chart) {
 							var meta = chart.getDatasetMeta(0);
 							var ds = data.datasets[0];
 							var arc = meta.data[i];
-							var custom = arc && arc.custom || {};
+							var custom = arc.custom || {};
 							var getValueAtIndexOrDefault = helpers.getValueAtIndexOrDefault;
 							var arcOpts = chart.options.elements.arc;
 							var fill = custom.backgroundColor ? custom.backgroundColor : getValueAtIndexOrDefault(ds.backgroundColor, i, arcOpts.backgroundColor);
@@ -64,8 +64,9 @@ module.exports = function(Chart) {
 								index: i
 							};
 						});
+					} else {
+						return [];
 					}
-					return [];
 				}
 			},
 
@@ -76,23 +77,20 @@ module.exports = function(Chart) {
 
 				for (i = 0, ilen = (chart.data.datasets || []).length; i < ilen; ++i) {
 					meta = chart.getDatasetMeta(i);
-					// toggle visibility of index if exists
-					if (meta.data[index]) {
-						meta.data[index].hidden = !meta.data[index].hidden;
-					}
+					meta.data[index].hidden = !meta.data[index].hidden;
 				}
 
 				chart.update();
 			}
 		},
 
-		// The percentage of the chart that we cut out of the middle.
+		//The percentage of the chart that we cut out of the middle.
 		cutoutPercentage: 50,
 
-		// The rotation of the chart, where the first data arc begins.
+		//The rotation of the chart, where the first data arc begins.
 		rotation: Math.PI * -0.5,
 
-		// The total circumference of the chart.
+		//The total circumference of the chart.
 		circumference: Math.PI * 2.0,
 
 		// Need to override these to give a nice default
@@ -102,19 +100,7 @@ module.exports = function(Chart) {
 					return '';
 				},
 				label: function(tooltipItem, data) {
-					var dataLabel = data.labels[tooltipItem.index];
-					var value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-
-					if (helpers.isArray(dataLabel)) {
-						// show value on first line of multiline label
-						// need to clone because we are changing the value
-						dataLabel = dataLabel.slice();
-						dataLabel[0] += value;
-					} else {
-						dataLabel += value;
-					}
-
-					return dataLabel;
+					return data.labels[tooltipItem.index] + ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
 				}
 			}
 		}
@@ -133,7 +119,7 @@ module.exports = function(Chart) {
 		linkScales: helpers.noop,
 
 		// Get index of the dataset in relation to the visible datasets. This allows determining the inner and outer radius correctly
-		getRingIndex: function(datasetIndex) {
+		getRingIndex: function getRingIndex(datasetIndex) {
 			var ringIndex = 0;
 
 			for (var j = 0; j < datasetIndex; ++j) {
@@ -145,7 +131,7 @@ module.exports = function(Chart) {
 			return ringIndex;
 		},
 
-		update: function(reset) {
+		update: function update(reset) {
 			var me = this;
 			var chart = me.chart,
 				chartArea = chart.chartArea,
@@ -181,9 +167,8 @@ module.exports = function(Chart) {
 				offset = {x: (max.x + min.x) * -0.5, y: (max.y + min.y) * -0.5};
 			}
 
-			chart.borderWidth = me.getMaxBorderWidth(meta.data);
-			chart.outerRadius = Math.max((minSize - chart.borderWidth) / 2, 0);
-			chart.innerRadius = Math.max(cutoutPercentage ? (chart.outerRadius / 100) * (cutoutPercentage) : 0, 0);
+			chart.outerRadius = Math.max(minSize / 2, 0);
+			chart.innerRadius = Math.max(cutoutPercentage ? (chart.outerRadius / 100) * (cutoutPercentage) : 1, 0);
 			chart.radiusLength = (chart.outerRadius - chart.innerRadius) / chart.getVisibleDatasetCount();
 			chart.offsetX = offset.x * chart.outerRadius;
 			chart.offsetY = offset.y * chart.outerRadius;
@@ -191,7 +176,7 @@ module.exports = function(Chart) {
 			meta.total = me.calculateTotal();
 
 			me.outerRadius = chart.outerRadius - (chart.radiusLength * me.getRingIndex(me.index));
-			me.innerRadius = Math.max(me.outerRadius - chart.radiusLength, 0);
+			me.innerRadius = me.outerRadius - chart.radiusLength;
 
 			helpers.each(meta.data, function(arc, index) {
 				me.updateElement(arc, index, reset);
@@ -204,6 +189,7 @@ module.exports = function(Chart) {
 				chartArea = chart.chartArea,
 				opts = chart.options,
 				animationOpts = opts.animation,
+				arcOpts = opts.elements.arc,
 				centerX = (chartArea.left + chartArea.right) / 2,
 				centerY = (chartArea.top + chartArea.bottom) / 2,
 				startAngle = opts.rotation, // non reset case handled later
@@ -212,6 +198,7 @@ module.exports = function(Chart) {
 				circumference = reset && animationOpts.animateRotate ? 0 : arc.hidden ? 0 : me.calculateCircumference(dataset.data[index]) * (opts.circumference / (2.0 * Math.PI)),
 				innerRadius = reset && animationOpts.animateScale ? 0 : me.innerRadius,
 				outerRadius = reset && animationOpts.animateScale ? 0 : me.outerRadius,
+				custom = arc.custom || {},
 				valueAtIndexOrDefault = helpers.getValueAtIndexOrDefault;
 
 			helpers.extend(arc, {
@@ -267,10 +254,6 @@ module.exports = function(Chart) {
 				}
 			});
 
-			/* if (total === 0) {
-				total = NaN;
-			}*/
-
 			return total;
 		},
 
@@ -278,26 +261,9 @@ module.exports = function(Chart) {
 			var total = this.getMeta().total;
 			if (total > 0 && !isNaN(value)) {
 				return (Math.PI * 2.0) * (value / total);
+			} else {
+				return 0;
 			}
-			return 0;
-		},
-
-		// gets the max border or hover width to properly scale pie charts
-		getMaxBorderWidth: function(elements) {
-			var max = 0,
-				index = this.index,
-				length = elements.length,
-				borderWidth,
-				hoverWidth;
-
-			for (var i = 0; i < length; i++) {
-				borderWidth = elements[i]._model ? elements[i]._model.borderWidth : 0;
-				hoverWidth = elements[i]._chart ? elements[i]._chart.config.data.datasets[index].hoverBorderWidth : 0;
-
-				max = borderWidth > max ? borderWidth : max;
-				max = hoverWidth > max ? hoverWidth : max;
-			}
-			return max;
 		}
 	});
 };

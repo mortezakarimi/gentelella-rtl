@@ -1,6 +1,6 @@
 {
     "name": "datatables.net-scroller-bs",
-    "description": "Scroller for DataTables with styling for [Bootstrap](http://getbootstrap.com/)",
+    "description": "Scroller for DataTables with styling for [Bootstrap 3](http://getbootstrap.com/)",
     "main": [
         "css/scroller.bootstrap.css"
     ],

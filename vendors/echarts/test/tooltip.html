@@ -1,10 +1,10 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <script src="esl.js"></script>
-        <script src="config.js"></script>
+        <script src="lib/esl.js"></script>
+        <script src="lib/config.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="lib/reset.css" />
         <script src="lib/testHelper.js"></script>
         <script src="tooltipTestHelper.js"></script>
     </head>
@@ -38,6 +38,8 @@
         <div class="chart" id="main"></div>
         <h1>set position</h1>
         <div class="chart" id="position"></div>
+        <h1>confine</h1>
+        <div class="chart" id="confine"></div>
         <h1>triggerOn click</h1>
         <div class="chart" id="click"></div>
         <h1>dispatchAciton manually with `position` specified (postion: [10,10])</h1>
@@ -52,12 +54,12 @@
         <script>
 
             require([
-                'echarts',
-                'echarts/chart/line',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/tooltip',
-                'zrender/vml/vml'
+                'echarts'
+                // 'echarts/chart/line',
+                // 'echarts/component/legend',
+                // 'echarts/component/grid',
+                // 'echarts/component/tooltip',
+                // 'zrender/vml/vml'
             ], function (echarts) {
 
                 var option = {
@@ -139,12 +141,12 @@
         <script>
 
             require([
-                'echarts',
-                'echarts/chart/line',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/tooltip',
-                'zrender/vml/vml'
+                'echarts'
+                // 'echarts/chart/line',
+                // 'echarts/component/legend',
+                // 'echarts/component/grid',
+                // 'echarts/component/tooltip',
+                // 'zrender/vml/vml'
             ], function (echarts) {
 
                 var option = {
@@ -191,12 +193,12 @@
         <script>
 
             require([
-                'echarts',
-                'echarts/chart/line',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/tooltip',
-                'zrender/vml/vml'
+                'echarts'
+                // 'echarts/chart/line',
+                // 'echarts/component/legend',
+                // 'echarts/component/grid',
+                // 'echarts/component/tooltip',
+                // 'zrender/vml/vml'
             ], function (echarts) {
 
                 var option = {
@@ -235,12 +237,12 @@
         <script>
 
             require([
-                'echarts',
-                'echarts/chart/line',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/tooltip',
-                'zrender/vml/vml'
+                'echarts'
+                // 'echarts/chart/line',
+                // 'echarts/component/legend',
+                // 'echarts/component/grid',
+                // 'echarts/component/tooltip',
+                // 'zrender/vml/vml'
             ], function (echarts) {
 
                 var option = {
@@ -303,12 +305,12 @@
         <script>
 
             require([
-                'echarts',
-                'echarts/chart/line',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/tooltip',
-                'zrender/vml/vml'
+                'echarts'
+                // 'echarts/chart/line',
+                // 'echarts/component/legend',
+                // 'echarts/component/grid',
+                // 'echarts/component/tooltip',
+                // 'zrender/vml/vml'
             ], function (echarts) {
 
                 var option = {
@@ -350,11 +352,11 @@
         <script>
 
             require([
-                'echarts',
-                'echarts/chart/bar',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/tooltip'
+                'echarts'
+                // 'echarts/chart/bar',
+                // 'echarts/component/legend',
+                // 'echarts/component/grid',
+                // 'echarts/component/tooltip'
             ], function (echarts) {
 
                 var dom = document.getElementById('main');
@@ -529,12 +531,12 @@
         <script>
 
             require([
-                'echarts',
-                'echarts/chart/pie',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/tooltip',
-                'zrender/vml/vml'
+                'echarts'
+                // 'echarts/chart/pie',
+                // 'echarts/component/legend',
+                // 'echarts/component/grid',
+                // 'echarts/component/tooltip',
+                // 'zrender/vml/vml'
             ], function (echarts) {
 
                 var option = {
@@ -602,15 +604,78 @@
 
 
 
+
         <script>
 
             require([
-                'echarts',
-                'echarts/chart/line',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/tooltip',
-                'zrender/vml/vml'
+                'echarts'
+                // 'echarts/chart/pie',
+                // 'echarts/component/legend',
+                // 'echarts/component/grid',
+                // 'echarts/component/tooltip',
+                // 'zrender/vml/vml'
+            ], function (echarts) {
+
+                var option = {
+                    tooltip: {
+                        confine: true,
+                        borderWidth: 10,
+                        borderColor: 'green',
+                        padding: 20,
+                        formatter: "{a} <br/>{b} : {c} ({d}%)"
+                    },
+                    series: {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius : 1180,
+                        data:[
+                            {
+                                value:335, name:'position: [300, 100]',
+                            },
+                            {
+                                value:310, name:'position: function [p[0] + 10, p[1] - 50]',
+                            },
+                            {
+                                value:234, name:'position: inside',
+                            },
+                            {
+                                value:135, name:'align: right; verticalAlign: bottom',
+                                tooltip: {
+                                    align: 'right',
+                                    verticalAlign: 'bottom'
+                                }
+                            },
+                            {
+                                value:548, name:'position: [30, 140], verticalAlign: bottom',
+                            }
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                };
+
+                createChart('confine', echarts, option, 500);
+            })
+        </script>
+
+
+
+
+
+        <script>
+
+            require([
+                'echarts'
+                // 'echarts/chart/line',
+                // 'echarts/component/legend',
+                // 'echarts/component/grid',
+                // 'echarts/component/tooltip',
+                // 'zrender/vml/vml'
             ], function (echarts) {
 
                 var option = {
@@ -651,12 +716,12 @@
         <script>
 
             require([
-                'echarts',
-                'echarts/chart/line',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/tooltip',
-                'zrender/vml/vml'
+                'echarts'
+                // 'echarts/chart/line',
+                // 'echarts/component/legend',
+                // 'echarts/component/grid',
+                // 'echarts/component/tooltip',
+                // 'zrender/vml/vml'
             ], function (echarts) {
 
                 var option = {
@@ -767,12 +832,12 @@
         <script>
 
             require([
-                'echarts',
-                'echarts/chart/line',
-                'echarts/component/legend',
-                'echarts/component/grid',
-                'echarts/component/tooltip',
-                'zrender/vml/vml'
+                'echarts'
+                // 'echarts/chart/line',
+                // 'echarts/component/legend',
+                // 'echarts/component/grid',
+                // 'echarts/component/tooltip',
+                // 'zrender/vml/vml'
             ], function (echarts) {
 
                 var option = {

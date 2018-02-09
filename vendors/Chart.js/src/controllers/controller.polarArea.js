@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 module.exports = function(Chart) {
 
@@ -7,28 +7,16 @@ module.exports = function(Chart) {
 	Chart.defaults.polarArea = {
 
 		scale: {
-			type: 'radialLinear',
-			angleLines: {
-				display: false
-			},
-			gridLines: {
-				circular: true
-			},
-			pointLabels: {
-				display: false
-			},
-			ticks: {
-				beginAtZero: true
-			}
+			type: "radialLinear",
+			lineArc: true // so that lines are circular
 		},
 
-		// Boolean - Whether to animate the rotation of the chart
+		//Boolean - Whether to animate the rotation of the chart
 		animation: {
 			animateRotate: true,
 			animateScale: true
 		},
 
-		startAngle: -0.5 * Math.PI,
 		aspectRatio: 1,
 		legendCallback: function(chart) {
 			var text = [];
@@ -40,16 +28,16 @@ module.exports = function(Chart) {
 
 			if (datasets.length) {
 				for (var i = 0; i < datasets[0].data.length; ++i) {
-					text.push('<li><span style="background-color:' + datasets[0].backgroundColor[i] + '"></span>');
+					text.push('<li><span style="background-color:' + datasets[0].backgroundColor[i] + '">');
 					if (labels[i]) {
 						text.push(labels[i]);
 					}
-					text.push('</li>');
+					text.push('</span></li>');
 				}
 			}
 
 			text.push('</ul>');
-			return text.join('');
+			return text.join("");
 		},
 		legend: {
 			labels: {
@@ -78,8 +66,9 @@ module.exports = function(Chart) {
 								index: i
 							};
 						});
+					} else {
+						return [];
 					}
-					return [];
 				}
 			},
 
@@ -116,7 +105,7 @@ module.exports = function(Chart) {
 
 		linkScales: helpers.noop,
 
-		update: function(reset) {
+		update: function update(reset) {
 			var me = this;
 			var chart = me.chart;
 			var chartArea = chart.chartArea;
@@ -141,16 +130,19 @@ module.exports = function(Chart) {
 		updateElement: function(arc, index, reset) {
 			var me = this;
 			var chart = me.chart;
+			var chartArea = chart.chartArea;
 			var dataset = me.getDataset();
 			var opts = chart.options;
 			var animationOpts = opts.animation;
+			var arcOpts = opts.elements.arc;
+			var custom = arc.custom || {};
 			var scale = chart.scale;
 			var getValueAtIndexOrDefault = helpers.getValueAtIndexOrDefault;
 			var labels = chart.data.labels;
 
 			var circumference = me.calculateCircumference(dataset.data[index]);
-			var centerX = scale.xCenter;
-			var centerY = scale.yCenter;
+			var centerX = (chartArea.left + chartArea.right) / 2;
+			var centerY = (chartArea.top + chartArea.bottom) / 2;
 
 			// If there is NaN data before us, we need to calculate the starting angle correctly.
 			// We could be way more efficient here, but its unlikely that the polar area chart will have a lot of data
@@ -162,10 +154,9 @@ module.exports = function(Chart) {
 				}
 			}
 
-			// var negHalfPI = -0.5 * Math.PI;
-			var datasetStartAngle = opts.startAngle;
+			var negHalfPI = -0.5 * Math.PI;
 			var distance = arc.hidden ? 0 : scale.getDistanceFromCenterForValue(dataset.data[index]);
-			var startAngle = datasetStartAngle + (circumference * visibleCount);
+			var startAngle = (negHalfPI) + (circumference * visibleCount);
 			var endAngle = startAngle + (arc.hidden ? 0 : circumference);
 
 			var resetRadius = animationOpts.animateScale ? 0 : scale.getDistanceFromCenterForValue(dataset.data[index]);
@@ -182,8 +173,8 @@ module.exports = function(Chart) {
 					y: centerY,
 					innerRadius: 0,
 					outerRadius: reset ? resetRadius : distance,
-					startAngle: reset && animationOpts.animateRotate ? datasetStartAngle : startAngle,
-					endAngle: reset && animationOpts.animateRotate ? datasetStartAngle : endAngle,
+					startAngle: reset && animationOpts.animateRotate ? negHalfPI : startAngle,
+					endAngle: reset && animationOpts.animateRotate ? negHalfPI : endAngle,
 					label: getValueAtIndexOrDefault(labels, index, labels[index])
 				}
 			});
@@ -216,8 +207,9 @@ module.exports = function(Chart) {
 			var count = this.getMeta().count;
 			if (count > 0 && !isNaN(value)) {
 				return (2 * Math.PI) / count;
+			} else {
+				return 0;
 			}
-			return 0;
 		}
 	});
 };
