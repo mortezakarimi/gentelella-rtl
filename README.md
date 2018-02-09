@@ -26,21 +26,14 @@ Gentelella یک قالب مدیریت راست چین شده می‌باشد ک�
 git clone https://github.com/mortezakarimi/gentelella-rtl.git -b 'gh-pages'
 ```
 
-<div>
 
 **Bower**
-
-<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
 
 ```
 bower install gentelella --save
 ```
 
-</div>
-
 **npm**
-
-<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
 
 ```
 npm install gentelella --save
