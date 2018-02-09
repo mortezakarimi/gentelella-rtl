@@ -32,7 +32,7 @@
     "font-awesome": "fontawesome#^4.6.1",
     "fastclick": "^1.0.6",
     "nprogress": "^0.2.0",
-    "Chart.js": "^2.0.2",
+    "Chart.js": "2.1.6",
     "gauge.js": "gauge.js#^1.2.1",
     "bootstrap-progressbar": "^0.9.0",
     "iCheck": "icheck#^1.0.2",

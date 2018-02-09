@@ -1,6 +1,6 @@
 <div dir="RTL" align="right" style="direction:rtl;text-align:right;">
 
-# Gentelella RTL / قالب راستچین شده مدیریت
+# Gentelella RTL / قالب راست چین شده مدیریت
 
 Gentelella یک قالب مدیریت راست چین شده می‌باشد که از روی قالب اصلی که در آدرس [Gentelella](https://github.com/puikinsh/gentelella) می‌توانید آن را مشاهده نمایید بوجود آمده است.
 
@@ -23,6 +23,19 @@ Gentelella یک قالب مدیریت راست چین شده می‌باشد ک�
 ```
 git clone https://github.com/mortezakarimi/gentelella-rtl.git -b 'gh-pages'
 ```
+
+**Bower**
+
+```
+bower install gentelella --save
+```
+
+**npm**
+
+```
+npm install gentelella --save
+```
+
 ## چگونه همکاری کنید
 برای همکاری مطمئن شوید آخرین نسخه پایدار [Node.js](https://nodejs.org/) و [npm](https://npmjs.com) نصب باشد.
 
@@ -35,7 +48,9 @@ git clone https://github.com/mortezakarimi/gentelella-rtl.git -b 'gh-pages'
 3. و حالا شما می‌توانید کد بزنید و کد بزنید و کد...!
 4. ارسال یک pull Request
 
-## Scripts included:
+## اسکریپت های استفاده شده:
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
+
 * Bootstrap
 * Bootstrap-rtl
 * Font Awesome
@@ -75,7 +90,11 @@ git clone https://github.com/mortezakarimi/gentelella-rtl.git -b 'gh-pages'
 * jQuery Smart Wizard
 * moment-jalaali
 
-## Gentelella for other platforms and frameworks
+</div>
+
+## قالب Gentelella برای دیگر فریمورک ها
+
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
 
 * [Gentelella on Ruby on Rails 4](https://github.com/iogbole/gentelella_on_rails) thanks to Israel Ogbole.
 * [Gentelella on Smarty 3](https://github.com/microvb/otp-thing) with one time password generator, validator, and QR code generator that has no web dependencies (self-contained) in PHP thanks to MicroVB INC
@@ -84,9 +103,14 @@ git clone https://github.com/mortezakarimi/gentelella-rtl.git -b 'gh-pages'
 * [Gentelella on Angular 2](https://github.com/kmkatsma/angular2-webpack-starter-gentelella) Angular Webpack Starter modified to utilize the Gentelella.
 * [Gentelella on Aurelia](https://github.com/kmkatsma/aurelia-gentelella) Typescript webpack skeleton modified to utilize the Gentelella.
 
-Let us know if you have done integration for this admin template on other platforms and frameworks and we'll be happy to share your work.
+</div>
 
-## Other templates and useful resources
+به ما اطلاع دهید اگر ادغام را برای این قالب مدیریت در سایر سیستم عامل ها و چارچوب ها انجام داده اید و خوشحال خواهیم شد که کار خود را به اشتراک بگذارید.
+
+## قالب های و موارد مفید دیگر
+
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
+
 * [Free Bootstrap Admin Templates](https://colorlib.com/wp/free-bootstrap-admin-dashboard-templates/ "Bootstrap Admin Templates on Colorlib") - List of the best Free Bootstrap admin dashboard templates that are available for free for personal and commercial use.
 * [Free Admin Templates](https://colorlib.com/wp/free-html5-admin-dashboard-templates/ "List of free HTML based admin templates by Colorlib") - Long list of the best free HTML5 powered admin dashboard templates. Available for personal and commercial use.
 * [Angular Templates](https://colorlib.com/wp/angularjs-admin-templates/ "Angular Admin Templates on Colorlib") - List of the most popular admin templates based on AngularJS.
@@ -95,8 +119,10 @@ Let us know if you have done integration for this admin template on other platfo
 * [WordPress Admin Templates](https://colorlib.com/wp/wordpress-admin-dashboard-themes-plugins/ "List of WordPress Admin Dashboard Templates and Plugins by Colorlib") - List of the best WordPress admin dashboard templates and plugins that will add a personal touch to your WordPress dashboard.
 * [WordPress Themes](https://colorlib.com/wp/free-wordpress-themes/ "List of Free WordPress themes by Colorlib") - A huge selection of the best free WordPress themes that are all licensed under GPL and are available for personal and commercial use without restrictions.
 
-## License information
-Gentelella is licensed under The MIT License (MIT). Which means that you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. But you always need to state that Colorlib is the original author of this template.
+</div>
 
-Project is developed and maintained by [Colorlib](https://colorlib.com/ "Colorlib - Make Your First Blog") and Aigars Silkalns
+## License information
+Gentelella RTL is licensed under The MIT License (MIT). Which means that you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. But you always need to state that Colorlib is the original author of this template.
+
+Project is developed and maintained by [Morteza Karimi](https://morteza-karimi.ir/ "Morteza Karimi - Web Developer")
 </div>

@@ -263,7 +263,7 @@ function countChecked() {
     if (checkCount) {
         $('.column-title').hide();
         $('.bulk-actions').show();
-        $('.action-cnt').html(checkCount + ' Records Selected');
+        $('.action-cnt').html(checkCount + ' انتخاب شده');
     } else {
         $('.column-title').show();
         $('.bulk-actions').hide();
@@ -848,6 +848,17 @@ function init_sparklines() {
         type: 'line',
         width: '100%',
         height: '125',
+        lineColor: '#26B99A',
+        fillColor: 'rgba(223, 223, 223, 0.57)',
+        lineWidth: 2,
+        spotColor: '#26B99A',
+        minSpotColor: '#26B99A'
+    });
+
+    $(".sparkline_four").sparkline([2, 4, 3, 4, 5, 4, 5, 4, 3, 4, 5, 6, 7, 5, 4, 3, 5, 6], {
+        type: 'line',
+        height: '40',
+        width: '200',
         lineColor: '#26B99A',
         fillColor: 'rgba(223, 223, 223, 0.57)',
         lineWidth: 2,
@@ -2350,7 +2361,7 @@ function init_charts() {
         var canvas_line_00 = new Chart(document.getElementById("canvas_line"), {
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر"],
                 datasets: [{
                     label: "My First dataset",
                     backgroundColor: "rgba(38, 185, 154, 0.31)",
@@ -2383,7 +2394,7 @@ function init_charts() {
         var canvas_line_01 = new Chart(document.getElementById("canvas_line1"), {
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر"],
                 datasets: [{
                     label: "My First dataset",
                     backgroundColor: "rgba(38, 185, 154, 0.31)",
@@ -2416,7 +2427,7 @@ function init_charts() {
         var canvas_line_02 = new Chart(document.getElementById("canvas_line2"), {
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر"],
                 datasets: [{
                     label: "My First dataset",
                     backgroundColor: "rgba(38, 185, 154, 0.31)",
@@ -2449,7 +2460,7 @@ function init_charts() {
         var canvas_line_03 = new Chart(document.getElementById("canvas_line3"), {
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر"],
                 datasets: [{
                     label: "My First dataset",
                     backgroundColor: "rgba(38, 185, 154, 0.31)",
@@ -2482,7 +2493,7 @@ function init_charts() {
         var canvas_line_04 = new Chart(document.getElementById("canvas_line4"), {
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر"],
                 datasets: [{
                     label: "My First dataset",
                     backgroundColor: "rgba(38, 185, 154, 0.31)",
@@ -2518,7 +2529,7 @@ function init_charts() {
         var lineChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر"],
                 datasets: [{
                     label: "My First dataset",
                     backgroundColor: "rgba(38, 185, 154, 0.31)",
@@ -2553,7 +2564,7 @@ function init_charts() {
         var mybarChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                labels: ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر"],
                 datasets: [{
                     label: '# of Votes',
                     backgroundColor: "#26B99A",
@@ -2586,11 +2597,11 @@ function init_charts() {
         var ctx = document.getElementById("canvasDoughnut");
         var data = {
             labels: [
-                "Dark Grey",
-                "Purple Color",
-                "Gray Color",
-                "Green Color",
-                "Blue Color"
+                "خاکستری تیر",
+                "رنگ بنفش",
+                "رنگ خاکستری",
+                "رنگ سبز",
+                "رنگ آبی"
             ],
             datasets: [{
                 data: [120, 50, 140, 180, 100],
@@ -2626,7 +2637,7 @@ function init_charts() {
 
         var ctx = document.getElementById("canvasRadar");
         var data = {
-            labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+            labels: ["خوردن", "نوشیدن", "خوابیدن", "طراحی کردن", "کد زدن", "دوچرخه سواری", "دویدن"],
             datasets: [{
                 label: "My First dataset",
                 backgroundColor: "rgba(3, 88, 106, 0.2)",
@@ -2673,11 +2684,11 @@ function init_charts() {
                 label: 'My dataset' // for legend
             }],
             labels: [
-                "Dark Gray",
-                "Purple",
-                "Gray",
-                "Green",
-                "Blue"
+                "خاکستری تیر",
+                "بنفش",
+                "خاکستری",
+                "سبز",
+                "آبی"
             ]
         };
 
@@ -2710,11 +2721,11 @@ function init_charts() {
                 label: 'My dataset'
             }],
             labels: [
-                "Dark Gray",
-                "Purple",
-                "Gray",
-                "Green",
-                "Blue"
+                "خاکستری تیر",
+                "بنفش",
+                "خاکستری",
+                "سبز",
+                "آبی"
             ]
         };
 
@@ -2756,7 +2767,6 @@ function init_calendar() {
         return;
     }
     console.log('init_calendar');
-
     var date = new Date(),
         d = date.getDate(),
         m = date.getMonth(),
@@ -2766,9 +2776,10 @@ function init_calendar() {
 
     var calendar = $('#calendar').fullCalendar({
         header: {
-            left: 'prev,next today',
+            right: 'prev,next today',
             center: 'title',
-            right: 'month,agendaWeek,agendaDay,listMonth'
+            left: 'month,agendaWeek,agendaDay,listMonth',
+            isRTL: true
         },
         selectable: true,
         selectHelper: true,
@@ -2791,7 +2802,8 @@ function init_calendar() {
                             title: title,
                             start: started,
                             end: end,
-                            allDay: allDay
+                            allDay: allDay,
+                            isRTL: true
                         },
                         true // make the event "stick"
                     );
@@ -2823,28 +2835,28 @@ function init_calendar() {
         },
         editable: true,
         events: [{
-            title: 'All Day Event',
+            title: 'تمام روز رویداد',
             start: new Date(y, m, 1)
         }, {
-            title: 'Long Event',
+            title: 'رویداد طولانی',
             start: new Date(y, m, d - 5),
             end: new Date(y, m, d - 2)
         }, {
-            title: 'Meeting',
+            title: 'ملاقات',
             start: new Date(y, m, d, 10, 30),
             allDay: false
         }, {
-            title: 'Lunch',
+            title: 'نهار',
             start: new Date(y, m, d + 14, 12, 0),
             end: new Date(y, m, d, 14, 0),
             allDay: false
         }, {
-            title: 'Birthday Party',
+            title: 'مهمونی تولد',
             start: new Date(y, m, d + 1, 19, 0),
             end: new Date(y, m, d + 1, 22, 30),
             allDay: false
         }, {
-            title: 'Click for Google',
+            title: 'کلیک برای گوگل',
             start: new Date(y, m, 28),
             end: new Date(y, m, 29),
             url: 'http://google.com/'
@@ -2863,30 +2875,58 @@ function init_DataTables() {
         return;
     }
     console.log('init_DataTables');
-
+    var dataTableLang = {
+        "sEmptyTable": "هیچ داده ای در جدول وجود ندارد",
+        "sInfo": "نمایش _START_ تا _END_ از _TOTAL_ رکورد",
+        "sInfoEmpty": "نمایش 0 تا 0 از 0 رکورد",
+        "sInfoFiltered": "(فیلتر شده از _MAX_ رکورد)",
+        "sInfoPostFix": "",
+        "sInfoThousands": ",",
+        "sLengthMenu": "نمایش _MENU_ رکورد",
+        "sLoadingRecords": "در حال بارگزاری...",
+        "sProcessing": "در حال پردازش...",
+        "sSearch": "جستجو:",
+        "sZeroRecords": "رکوردی با این مشخصات پیدا نشد",
+        "oPaginate": {
+            "sFirst": "ابتدا",
+            "sLast": "انتها",
+            "sNext": "بعدی",
+            "sPrevious": "قبلی"
+        },
+        "oAria": {
+            "sSortAscending": ": فعال سازی نمایش به صورت صعودی",
+            "sSortDescending": ": فعال سازی نمایش به صورت نزولی"
+        }
+    };
     var handleDataTableButtons = function () {
         if ($("#datatable-buttons").length) {
             $("#datatable-buttons").DataTable({
+                language: dataTableLang,
                 dom: "Bfrtip",
                 buttons: [
                     {
                         extend: "copy",
+                        text:"کپی",
                         className: "btn-sm"
                     },
                     {
                         extend: "csv",
+                        text:"فایل CSV",
                         className: "btn-sm"
                     },
                     {
                         extend: "excel",
+                        text:"اکسل",
                         className: "btn-sm"
                     },
                     {
                         extend: "pdfHtml5",
+                        text:"فایل PDF",
                         className: "btn-sm"
                     },
                     {
                         extend: "print",
+                        text:"چاپ",
                         className: "btn-sm"
                     },
                 ],
@@ -2904,15 +2944,21 @@ function init_DataTables() {
         };
     }();
 
-    $('#datatable').dataTable();
-
-    $('#datatable-keytable').DataTable({
-        keys: true
+    $('#datatable').dataTable({
+        language:dataTableLang
     });
 
-    $('#datatable-responsive').DataTable();
+    $('#datatable-keytable').DataTable({
+        keys: true,
+        language:dataTableLang,
+    });
+
+    $('#datatable-responsive').DataTable({
+        language:dataTableLang
+    });
 
     $('#datatable-scroller').DataTable({
+        language:dataTableLang,
         ajax: "js/datatables/json/scroller-demo.json",
         deferRender: true,
         scrollY: 380,
@@ -2921,12 +2967,14 @@ function init_DataTables() {
     });
 
     $('#datatable-fixed-header').DataTable({
+        language:dataTableLang,
         fixedHeader: true
     });
 
     var $datatable = $('#datatable-checkbox');
 
     $datatable.dataTable({
+        language:dataTableLang,
         'order': [[1, 'asc']],
         'columnDefs': [
             {orderable: false, targets: [0]}
@@ -3000,7 +3048,7 @@ function init_morris_charts() {
             xkey: 'period',
             barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
             ykeys: ['licensed', 'sorned'],
-            labels: ['Licensed', 'SORN'],
+            labels: ['مجاز', 'سوری'],
             hideHover: 'auto',
             xLabelAngle: 60,
             resize: true
@@ -3049,7 +3097,7 @@ function init_morris_charts() {
             xkey: 'period',
             ykeys: ['iphone', 'ipad', 'itouch'],
             lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-            labels: ['iPhone', 'iPad', 'iPod Touch'],
+            labels: ['آیفون', 'آیپد', 'آیپد تاچ'],
             pointSize: 2,
             hideHover: 'auto',
             resize: true
@@ -3062,10 +3110,10 @@ function init_morris_charts() {
         Morris.Donut({
             element: 'graph_donut',
             data: [
-                {label: 'Jam', value: 25},
-                {label: 'Frosted', value: 40},
-                {label: 'Custard', value: 25},
-                {label: 'Sugar', value: 10}
+                {label: 'مربا', value: 25},
+                {label: 'یخ زده', value: 40},
+                {label: 'فرنی', value: 25},
+                {label: 'شکر', value: 10}
             ],
             colors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
             formatter: function (y) {
@@ -3082,7 +3130,7 @@ function init_morris_charts() {
             element: 'graph_line',
             xkey: 'year',
             ykeys: ['value'],
-            labels: ['Value'],
+            labels: ['مقدار'],
             hideHover: 'auto',
             lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
             data: [
@@ -3336,14 +3384,14 @@ function init_echarts() {
 
         echartBar.setOption({
             title: {
-                text: 'Graph title',
-                subtext: 'Graph Sub-text'
+                text: 'عنوان نمودار',
+                subtext: 'زیر عنوان نمودار'
             },
             tooltip: {
                 trigger: 'axis'
             },
             legend: {
-                data: ['sales', 'purchases']
+                data: ['فروش‌ها', 'خرید‌ها']
             },
             toolbox: {
                 show: false
@@ -3357,7 +3405,7 @@ function init_echarts() {
                 type: 'value'
             }],
             series: [{
-                name: 'sales',
+                name: 'فروش‌ها',
                 type: 'bar',
                 data: [2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6, 162.2, 32.6, 20.0, 6.4, 3.3],
                 markPoint: {
@@ -3376,17 +3424,17 @@ function init_echarts() {
                     }]
                 }
             }, {
-                name: 'purchases',
+                name: 'خرید‌ها',
                 type: 'bar',
                 data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3],
                 markPoint: {
                     data: [{
-                        name: 'sales',
+                        name: 'فروش‌ها',
                         value: 182.2,
                         xAxis: 7,
                         yAxis: 183,
                     }, {
-                        name: 'purchases',
+                        name: 'خرید‌ها',
                         value: 2.3,
                         xAxis: 11,
                         yAxis: 3
@@ -3412,8 +3460,8 @@ function init_echarts() {
 
         echartRadar.setOption({
             title: {
-                text: 'Budget vs spending',
-                subtext: 'Subtitle'
+                text: 'بودجه در مقابل هزینه',
+                subtext: 'زیر عنوان'
             },
             tooltip: {
                 trigger: 'item'
@@ -3429,45 +3477,45 @@ function init_echarts() {
                 feature: {
                     restore: {
                         show: true,
-                        title: "Restore"
+                        title: "بازگردانی"
                     },
                     saveAsImage: {
                         show: true,
-                        title: "Save Image"
+                        title: "ذخیره تصویر"
                     }
                 }
             },
             polar: [{
                 indicator: [{
-                    text: 'Sales',
+                    text: 'فروش ها',
                     max: 6000
                 }, {
-                    text: 'Administration',
+                    text: 'مدیریت',
                     max: 16000
                 }, {
-                    text: 'Information Techology',
+                    text: 'فناوری اطلاعات',
                     max: 30000
                 }, {
-                    text: 'Customer Support',
+                    text: 'پشتیبانی مشتری',
                     max: 38000
                 }, {
-                    text: 'Development',
+                    text: 'توسعه',
                     max: 52000
                 }, {
-                    text: 'Marketing',
+                    text: 'بازار یابی',
                     max: 25000
                 }]
             }],
             calculable: true,
             series: [{
-                name: 'Budget vs spending',
+                name: 'بودجه در مقابل هزینه',
                 type: 'radar',
                 data: [{
                     value: [4300, 10000, 28000, 35000, 50000, 19000],
-                    name: 'Allocated Budget'
+                    name: 'بودجه اختصاص یافته'
                 }, {
                     value: [5000, 14000, 28000, 31000, 42000, 21000],
-                    name: 'Actual Spending'
+                    name: 'هزینه های واقعی'
                 }]
             }]
         });
@@ -3482,8 +3530,8 @@ function init_echarts() {
 
         echartFunnel.setOption({
             title: {
-                text: 'Echart Pyramid Graph',
-                subtext: 'Subtitle'
+                text: 'نمودار اهراد هرم',
+                subtext: 'زیر عنوان'
             },
             tooltip: {
                 trigger: 'item',
@@ -3494,16 +3542,16 @@ function init_echarts() {
                 feature: {
                     restore: {
                         show: true,
-                        title: "Restore"
+                        title: "بازگردانی"
                     },
                     saveAsImage: {
                         show: true,
-                        title: "Save Image"
+                        title: "ذخیره تصویر"
                     }
                 }
             },
             legend: {
-                data: ['Something #1', 'Something #2', 'Something #3', 'Something #4', 'Something #5'],
+                data: ['چیزی #1', 'چیزی #2', 'چیزی #3', 'چیزی #4', 'چیزی #5'],
                 orient: 'vertical',
                 x: 'left',
                 y: 'bottom'
@@ -3515,19 +3563,19 @@ function init_echarts() {
                 width: '40%',
                 data: [{
                     value: 60,
-                    name: 'Something #1'
+                    name: 'چیزی #1'
                 }, {
                     value: 40,
-                    name: 'Something #2'
+                    name: 'چیزی #2'
                 }, {
                     value: 20,
-                    name: 'Something #3'
+                    name: 'چیزی #3'
                 }, {
                     value: 80,
-                    name: 'Something #4'
+                    name: 'چیزی #4'
                 }, {
                     value: 100,
-                    name: 'Something #5'
+                    name: 'چیزی #5'
                 }]
             }]
         });
@@ -3549,16 +3597,16 @@ function init_echarts() {
                 feature: {
                     restore: {
                         show: true,
-                        title: "Restore"
+                        title: "بازگردانی"
                     },
                     saveAsImage: {
                         show: true,
-                        title: "Save Image"
+                        title: "ذخیره تصویر"
                     }
                 }
             },
             series: [{
-                name: 'Performance',
+                name: 'کارایی',
                 type: 'gauge',
                 center: ['50%', '50%'],
                 startAngle: 140,
@@ -3647,7 +3695,7 @@ function init_echarts() {
                 },
                 data: [{
                     value: 50,
-                    name: 'Performance'
+                    name: 'کارایی'
                 }]
             }]
         });
@@ -3662,8 +3710,8 @@ function init_echarts() {
 
         echartLine.setOption({
             title: {
-                text: 'Line Graph',
-                subtext: 'Subtitle'
+                text: 'نمودار خطی',
+                subtext: 'زیر عنوان'
             },
             tooltip: {
                 trigger: 'axis'
@@ -3688,11 +3736,11 @@ function init_echarts() {
                     },
                     restore: {
                         show: true,
-                        title: "Restore"
+                        title: "بازگردانی"
                     },
                     saveAsImage: {
                         show: true,
-                        title: "Save Image"
+                        title: "ذخیره تصویر"
                     }
                 }
             },
@@ -3754,8 +3802,8 @@ function init_echarts() {
 
         echartScatter.setOption({
             title: {
-                text: 'Scatter Graph',
-                subtext: 'Heinz  2003'
+                text: 'نمودار پراکندگی',
+                subtext: 'هاینز 2003'
             },
             tooltip: {
                 trigger: 'axis',
@@ -3776,7 +3824,7 @@ function init_echarts() {
                 feature: {
                     saveAsImage: {
                         show: true,
-                        title: "Save Image"
+                        title: "ذخیره تصویر"
                     }
                 }
             },
@@ -4374,8 +4422,8 @@ function init_echarts() {
 
         echartBar.setOption({
             title: {
-                text: 'Bar Graph',
-                subtext: 'Graph subtitle'
+                text: 'نمودار میله‌ای',
+                subtext: 'زیر عنوان'
             },
             tooltip: {
                 trigger: 'axis'
@@ -4389,7 +4437,7 @@ function init_echarts() {
                 feature: {
                     saveAsImage: {
                         show: true,
-                        title: "Save Image"
+                        title: "ذخیره تصویر"
                     }
                 }
             },
@@ -4440,11 +4488,11 @@ function init_echarts() {
                     },
                     restore: {
                         show: true,
-                        title: "Restore"
+                        title: "بازگردانی"
                     },
                     saveAsImage: {
                         show: true,
-                        title: "Save Image"
+                        title: "ذخیره تصویر"
                     }
                 }
             },
@@ -4516,11 +4564,11 @@ function init_echarts() {
                     },
                     restore: {
                         show: true,
-                        title: "Restore"
+                        title: "بازگردانی"
                     },
                     saveAsImage: {
                         show: true,
-                        title: "Save Image"
+                        title: "ذخیره تصویر"
                     }
                 }
             },
@@ -4602,11 +4650,11 @@ function init_echarts() {
                     },
                     restore: {
                         show: true,
-                        title: "Restore"
+                        title: "بازگردانی"
                     },
                     saveAsImage: {
                         show: true,
-                        title: "Save Image"
+                        title: "ذخیره تصویر"
                     }
                 }
             },
@@ -4693,7 +4741,7 @@ function init_echarts() {
                 x: 170,
                 y: 45,
                 itemGap: 12,
-                data: ['68%Something #1', '29%Something #2', '3%Something #3'],
+                data: ['68%چیزی #1', '29%چیزی #2', '3%چیزی #3'],
             },
             toolbox: {
                 show: true,
@@ -4713,11 +4761,11 @@ function init_echarts() {
                     },
                     restore: {
                         show: true,
-                        title: "Restore"
+                        title: "بازگردانی"
                     },
                     saveAsImage: {
                         show: true,
-                        title: "Save Image"
+                        title: "ذخیره تصویر"
                     }
                 }
             },
@@ -4729,7 +4777,7 @@ function init_echarts() {
                 itemStyle: dataStyle,
                 data: [{
                     value: 68,
-                    name: '68%Something #1'
+                    name: '68%چیزی #1'
                 }, {
                     value: 32,
                     name: 'invisible',
@@ -4743,7 +4791,7 @@ function init_echarts() {
                 itemStyle: dataStyle,
                 data: [{
                     value: 29,
-                    name: '29%Something #2'
+                    name: '29%چیزی #2'
                 }, {
                     value: 71,
                     name: 'invisible',
@@ -4757,7 +4805,7 @@ function init_echarts() {
                 itemStyle: dataStyle,
                 data: [{
                     value: 3,
-                    name: '3%Something #3'
+                    name: '3%چیزی #3'
                 }, {
                     value: 97,
                     name: 'invisible',
@@ -4777,8 +4825,8 @@ function init_echarts() {
 
         echartMap.setOption({
             title: {
-                text: 'World Population (2010)',
-                subtext: 'from United Nations, Total population, both sexes combined, as of 1 July (thousands)',
+                text: 'جمعیت جهان (2010)',
+                subtext: 'از سازمان ملل متحد، مجموع جمعیت، هر دو جنس ترکیبی، از 1 جولای (هزاران نفر)',
                 x: 'center',
                 y: 'top'
             },
@@ -4811,11 +4859,11 @@ function init_echarts() {
                     },
                     restore: {
                         show: true,
-                        title: "Restore"
+                        title: "بازگردانی"
                     },
                     saveAsImage: {
                         show: true,
-                        title: "Save Image"
+                        title: "ذخیره تصویر"
                     }
                 }
             },

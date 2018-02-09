@@ -18,6 +18,19 @@ As of now, this is some installation available:
 ```
 git clone https://github.com/mortezakarimi/gentelella-rtl.git -b 'gh-pages'
 ```
+
+**Bower**
+
+```
+bower install gentelella --save
+```
+
+**npm**
+
+```
+npm install gentelella --save
+```
+
 ## How to contribute
 To contribute, please ensure that you have stable [Node.js](https://nodejs.org/) and [npm](https://npmjs.com) installed.
 
@@ -91,6 +104,6 @@ Let us know if you have done integration for this admin template on other platfo
 * [WordPress Themes](https://colorlib.com/wp/free-wordpress-themes/ "List of Free WordPress themes by Colorlib") - A huge selection of the best free WordPress themes that are all licensed under GPL and are available for personal and commercial use without restrictions.
 
 ## License information
-Gentelella is licensed under The MIT License (MIT). Which means that you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. But you always need to state that Colorlib is the original author of this template.
+Gentelella RTL is licensed under The MIT License (MIT). Which means that you can use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software. But you always need to state that Colorlib is the original author of this template.
 
-Project is developed and maintained by [Colorlib](https://colorlib.com/ "Colorlib - Make Your First Blog") and Aigars Silkalns
+Project is developed and maintained by [Morteza Karimi](https://morteza-karimi.ir/ "Morteza Karimi - Web Developer")

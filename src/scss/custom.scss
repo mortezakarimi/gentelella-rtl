@@ -2,7 +2,39 @@
 @import "partials/variables";
 @import "partials/extends";
 @import "partials/utilis";
-//@import "daterangepicker";
+
+pre, code {
+  direction: ltr !important;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+// fontawsome rtl
+[dir=rtl] .fa-ul {
+  margin-left: inherit;
+  padding-left: inherit;
+  margin-right: 2.14286em;
+  padding-right: 0;
+}
+
+[dir=ltr] .fa-ul {
+  margin-left: 2.14286em;
+  padding-left: 0;
+  margin-right: inherit;
+  padding-right: inherit;
+}
+
+[dir=rtl] .fa-li {
+  left: inherit;
+  right: -2.14286em;
+}
+
+[dir=ltr] .fa-li {
+  left: -2.14286em;
+  right: inherit;
+}
 
 .daterangepicker .ranges li {
   color: #73879C
@@ -1481,7 +1513,7 @@ footer {
     float: right;
     display: block;
     text-overflow: ellipsis;
-    overflow: hidden;
+    //overflow: hidden;
     white-space: nowrap;
     small {
       margin-right: 10px;
@@ -1563,6 +1595,9 @@ legend {
   .profile_left {
     background: $white;
   }
+  .emphasis {
+    padding: 0;
+  }
 }
 
 td {
@@ -1606,8 +1641,8 @@ td {
 }
 
 .dataTables_paginate {
-  float: right;
-  text-align: right;
+  float: left;
+  text-align: left;
   a {
     padding: 6px 9px !important;
     background: $color_alto_approx !important;
@@ -1686,10 +1721,10 @@ div {
 .dataTables_processing {
   position: absolute;
   top: 50%;
-  left: 50%;
+  right: 50%;
   width: 250px;
   height: 30px;
-  margin-left: -125px;
+  margin-right: -125px;
   margin-top: -15px;
   padding: 14px 0 2px;
   border: 1px solid $color_alto_approx;
@@ -1701,18 +1736,18 @@ div {
 
 .dataTables_length {
   width: 40%;
-  float: left;
+  float: right;
 }
 
-.dataTables_filter {
+div.dataTables_wrapper div.dataTables_filter, .dataTables_filter {
   width: 50%;
-  float: right;
-  text-align: right;
+  float: left;
+  text-align: left;
 }
 
 .dataTables_info {
   width: 60%;
-  float: left;
+  float: right;
 }
 
 .dataTables_scroll {
@@ -1840,12 +1875,12 @@ ul {
     }
     .month {
       width: 70%;
-      float: left;
+      float: right;
     }
     .count {
       width: 30%;
-      float: left;
-      text-align: right;
+      float: right;
+      text-align: left;
     }
   }
   &.widget_profile_box {
@@ -1858,16 +1893,16 @@ ul {
     li {
       &:first-child {
         width: 25%;
-        float: left;
+        float: right;
         a {
-          float: left;
+          float: right;
         }
       }
       &:last-child {
         width: 25%;
-        float: right;
+        float: left;
         a {
-          float: right;
+          float: left;
         }
       }
       a {
@@ -1877,9 +1912,10 @@ ul {
         height: 35px;
         border: 1px solid $color_pickled_bluewood_44_approx;
         display: block;
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 50%;
+        @include border-radius(50%);
         padding: 0;
+        padding-top: 5px;
+        cursor: pointer;
         &:hover {
           color: $color_mountain_meadow_approx !important;
           border: 1px solid $color_keppel_approx;
@@ -1903,6 +1939,7 @@ ul {
     li {
       width: 30%;
       text-align: center;
+      white-space: nowrap;
       h3 {
         font-weight: 400;
         margin: 0;
@@ -2119,7 +2156,7 @@ ul {
 .dashboard-widget-content {
   padding-top: 9px;
   .sidebar-widget {
-    width: 50%;
+    width: 55%;
     display: inline-block;
     vertical-align: top;
     background: $white;
@@ -2400,11 +2437,11 @@ span {
 }
 
 .mail_list_column {
-  border-left: 1px solid $alto;
+  border-right: 1px solid $alto;
 }
 
 .mail_view {
-  border-left: 1px solid $alto;
+  border-right: 1px solid $alto;
 }
 
 .mail_list {
@@ -2412,21 +2449,21 @@ span {
   border-bottom: 1px solid $alto;
   margin-bottom: 2px;
   display: inline-block;
-  .left {
+  .right {
     width: 5%;
-    float: left;
+    float: right;
     margin-right: 3%;
   }
-  .right {
+  .left {
     width: 90%;
-    float: left;
+    float: right;
   }
   h3 {
     font-size: 15px;
     font-weight: bold;
     margin: 0 0 6px;
     small {
-      float: right;
+      float: left;
       color: $color_silver_chalice_approx;
       font-size: 11px;
       line-height: 20px;
@@ -2483,24 +2520,21 @@ span {
   padding: 0;
   position: fixed;
   bottom: 0;
-  right: 0;
+  left: 0;
   background: $white;
   border: 1px solid $color_geyser_approx;
-  border-right: 0;
+  border-left: 0;
   border-bottom: 0;
-  //Instead of the line below you could use @include border-top-left-radius($radius)
-  border-top-left-radius: 5px;
+  @include border-top-right-radius(5px);
   z-index: 9999;
   display: none;
   .compose-header {
     padding: 5px;
     background: $color_niagara_approx;
     color: $white;
-    //Instead of the line below you could use @include border-top-left-radius($radius)
-    border-top-left-radius: 5px;
+    @include border-top-right-radius(5px);
     .close {
-      //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-      text-shadow: 0 1px 0 $white;
+      @include text-shadow(0 1px 0 $white);
       line-height: .8;
     }
   }
@@ -2509,8 +2543,7 @@ span {
       height: 100%;
       min-height: 50px;
       max-height: 180px;
-      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-      border-radius: 0;
+      @include border-radius(0);
       border-left: none;
       border-right: none;
       overflow: auto;
@@ -2832,33 +2865,50 @@ textarea {
   box-shadow: inset 0 1px 0 $white_20, 0 1px 2px $black_5;
 }
 
+.bs-glyphicons-list {
+  padding-left: 0;
+  list-style: none
+}
+
 .bs-glyphicons {
   margin: 0 -10px 20px;
   overflow: hidden;
   li {
-    float: left;
+    float: right;
     width: 25%;
     height: 115px;
     padding: 10px;
     font-size: 10px;
     line-height: 1.4;
     text-align: center;
-    background-color: $color_alabaster_approx;
-    border: 1px solid $white;
+    background-color: #f9f9f9;
+    border: 1px solid #fff;
     &:hover {
       color: $white;
       background-color: $color_mountain_meadow_approx;
     }
   }
+  @at-root {
+    @media (min-width: 768px) {
+      & {
+        margin-right: 0;
+        margin-left: 0
+      }
+      & li {
+        width: 12.5%;
+        font-size: 12px
+      }
+    }
+  }
   .glyphicon {
     margin-top: 5px;
     margin-bottom: 10px;
-    font-size: 24px;
+    font-size: 24px
   }
   .glyphicon-class {
     display: block;
     text-align: center;
-    word-wrap: break-word;
+    word-wrap: break-word
   }
 }
 
@@ -3227,7 +3277,7 @@ textarea {
     width: 85px;
     height: 88px;
     top: -3px;
-    right: -3px;
+    left: -3px;
   }
   .ui-ribbon {
     position: relative;
@@ -3236,16 +3286,14 @@ textarea {
     font-size: 15px;
     font-weight: 700;
     color: $white;
-    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
-    transform: rotate(45deg);
+    @include transform(rotate(-45deg));
     padding: 7px 0;
-    left: -5px;
+    right: -5px;
     top: 15px;
     width: 120px;
     line-height: 20px;
     background-color: $color_fuscous_gray_approx;
-    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-    box-shadow: 0 0 3px $black_30;
+    @include box-shadow(0 0 3px $black_30);
     &:before {
       left: 0;
       bottom: -1px;
@@ -3337,7 +3385,7 @@ textarea {
     }
   }
   p {
-    font-family: $font_7, $font_8;
+    font-family: $font_B_Yekan, $font_7, $font_8;
     font-style: italic;
     font-size: 12px;
     position: relative;
@@ -3635,8 +3683,7 @@ textarea {
   padding: 25px 0 0;
   position: relative;
   text-align: center;
-  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-  text-shadow: 0 1px 0 $white;
+  @include text-shadow(0 1px 0 $white);
   min-width: 280px;
   a {
     text-decoration: none;
@@ -3650,7 +3697,6 @@ textarea {
     line-height: 20px;
     margin: 10px 0 30px;
     &:before {
-      width: 27%;
       content: "";
       height: 1px;
       position: absolute;
@@ -3661,7 +3707,6 @@ textarea {
       left: 0;
     }
     &:after {
-      width: 27%;
       content: "";
       height: 1px;
       position: absolute;
@@ -3676,27 +3721,22 @@ textarea {
     margin: 20px 0;
     position: relative;
     input[type="text"] {
-      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-      border-radius: 3px;
-      //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-      box-shadow: 0 1px 0 $white, 0 -2px 5px $black_8 inset;
+      @include border-radius(3px);
+      @include box-shadow(0 1px 0 $white, 0 -2px 5px $black_8 inset);
       border: 1px solid $color_pumice_approx;
       color: $color_tapa_approx;
       margin: 0 0 20px;
       width: 100%;
       &:focus {
-        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-        box-shadow: 0 0 2px $color_bouquet_approx inset;
+        @include box-shadow(0 0 2px $color_bouquet_approx inset);
         background-color: $white;
         border: 1px solid $color_purple_mountains_majesty_approx;
         outline: none;
       }
     }
     input[type="email"] {
-      //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-      border-radius: 3px;
-      //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-      box-shadow: 0 1px 0 $white, 0 -2px 5px $black_8 inset;
+      @include border-radius(3px);
+      @include box-shadow(0 1px 0 $white, 0 -2px 5px $black_8 inset);
       border: 1px solid $color_pumice_approx;
       color: $color_tapa_approx;
       margin: 0 0 20px;
@@ -4414,7 +4454,7 @@ fieldset {
 
 .footer_fixed footer {
   position: fixed;
-  right: 0;
+  left: 0;
   bottom: 0;
   width: 100%;
 }
@@ -4532,8 +4572,8 @@ h4.graph_title {
   line-height: 32px;
   height: 32px;
   padding-left: 10px;
-  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-  border-radius: 4px;
+  @include border-radius(4px);
+  direction: ltr;
   &:hover {
     background-color: $color_alto_approx;
     color: $white;
@@ -4544,7 +4584,6 @@ h4.graph_title {
     }
   }
   .fa {
-    width: 32px;
     font-size: 16px;
     display: inline-block;
     text-align: right;
@@ -4823,4 +4862,31 @@ form:after {
   min-height: 10px;
   width: auto;
   height: auto;
+}
+
+// full Calender rtl
+.fc .fc-button-group > * {
+  float: right;
+}
+
+.fc-state-default.fc-prev-button, .fc-state-default.fc-next-button {
+  border-top-left-radius: initial;
+  border-bottom-left-radius: initial;
+  border-top-right-radius: initial;
+  border-bottom-right-radius: initial;
+}
+
+.fc-state-default.fc-corner-left {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.fc-state-default.fc-corner-right {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+// graph donut change font Family
+div#graph_donut svg text {
+  font-family: $font_B_Yekan !important;
 }
