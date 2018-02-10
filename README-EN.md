@@ -22,13 +22,13 @@ git clone https://github.com/mortezakarimi/gentelella-rtl.git -b 'gh-pages'
 **Bower**
 
 ```
-bower install gentelella --save
+bower install gentelella-rtl --save
 ```
 
 **npm**
 
 ```
-npm install gentelella --save
+npm install gentelella-rtl --save
 ```
 
 ## How to contribute
