@@ -678,17 +678,49 @@ function init_JQVmap() {
 
     }
 
-    if ($('#usa_map').length) {
-
-        $('#usa_map').vectorMap({
-            map: 'usa_en',
+    if ($('#iran_map').length) {
+        $('#iran_map').vectorMap({
+            map: 'iran_ir',
             backgroundColor: null,
             color: '#ffffff',
             hoverOpacity: 0.7,
             selectedColor: '#666666',
             enableZoom: true,
             showTooltip: true,
-            values: sample_data,
+            values: {
+                "15": "16.63",
+                "16": "11.58",
+                "17": "158.97",
+                "18": "85.81",
+                "19": "1.1",
+                "20": "351.02",
+                "21": "8.83",
+                "22": "1219.72",
+                "23": "366.26",
+                "24": "52.17",
+                "25": "7.54",
+                "26": "21.73",
+                "27": "105.4",
+                "28": "3.96",
+                "29": "52.89",
+                "30": "461.33",
+                "31": "1.43",
+                "32": "6.49",
+                "33": "1.4",
+                "34": "19.18",
+                "35": "16.2",
+                "36": "12.5",
+                "37": "2023.53",
+                "38": "11.96",
+                "39": "44.84",
+                "40": "8.67",
+                "41": "1.47",
+                "42": "11.36",
+                "43": "21.88",
+                "44": "1563.66",
+                "45": "1.57",
+                "46": "2.11",
+            },
             scaleColors: ['#E6F2F0', '#149B7E'],
             normalizeFunction: 'polynomial'
         });
@@ -2941,27 +2973,27 @@ function init_DataTables() {
                 buttons: [
                     {
                         extend: "copy",
-                        text:"کپی",
+                        text: "کپی",
                         className: "btn-sm"
                     },
                     {
                         extend: "csv",
-                        text:"فایل CSV",
+                        text: "فایل CSV",
                         className: "btn-sm"
                     },
                     {
                         extend: "excel",
-                        text:"اکسل",
+                        text: "اکسل",
                         className: "btn-sm"
                     },
                     {
                         extend: "pdfHtml5",
-                        text:"فایل PDF",
+                        text: "فایل PDF",
                         className: "btn-sm"
                     },
                     {
                         extend: "print",
-                        text:"چاپ",
+                        text: "چاپ",
                         className: "btn-sm"
                     },
                 ],
@@ -2980,20 +3012,20 @@ function init_DataTables() {
     }();
 
     $('#datatable').dataTable({
-        language:dataTableLang
+        language: dataTableLang
     });
 
     $('#datatable-keytable').DataTable({
         keys: true,
-        language:dataTableLang,
+        language: dataTableLang,
     });
 
     $('#datatable-responsive').DataTable({
-        language:dataTableLang
+        language: dataTableLang
     });
 
     $('#datatable-scroller').DataTable({
-        language:dataTableLang,
+        language: dataTableLang,
         ajax: "js/datatables/json/scroller-demo.json",
         deferRender: true,
         scrollY: 380,
@@ -3002,14 +3034,14 @@ function init_DataTables() {
     });
 
     $('#datatable-fixed-header').DataTable({
-        language:dataTableLang,
+        language: dataTableLang,
         fixedHeader: true
     });
 
     var $datatable = $('#datatable-checkbox');
 
     $datatable.dataTable({
-        language:dataTableLang,
+        language: dataTableLang,
         'order': [[1, 'asc']],
         'columnDefs': [
             {orderable: false, targets: [0]}
