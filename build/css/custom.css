@@ -338,7 +338,7 @@ pre, code {
 
 @font-face {
   font-family: "B Yekan";
-  src: url('../fonts/Yekan-modified.woff?1517899660') format('woff'), url('../fonts/Yekan-modified.ttf?1517899660') format('truetype'), url('../fonts/Yekan-modified.eot?1517899660') format('embedded-opentype');
+  src: url('../fonts/Yekan-modified.woff?1521361730') format('woff'), url('../fonts/Yekan-modified.ttf?1521361730') format('truetype'), url('../fonts/Yekan-modified.eot?1521361730') format('embedded-opentype');
 }
 .left_col {
   background: #2a3f54;
@@ -747,7 +747,7 @@ body .container.body .right_col {
 }
 .page-title .title_right {
   width: 55%;
-  float: right;
+  float: left;
   display: block;
 }
 .page-title .title_right .pull-right {
@@ -977,7 +977,6 @@ h1, .h1 {
 h2 {
   margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 18px;
   font-weight: 400;
 }
 
@@ -1290,7 +1289,7 @@ a.hiddenanchor {
   margin-right: auto;
 }
 .panel_toolbox > li {
-  float: right;
+  float: left;
   cursor: pointer;
 }
 .panel_toolbox > li > a {
@@ -1312,7 +1311,7 @@ a.hiddenanchor {
 
 footer {
   background: #fff;
-  padding: 10px 20px;
+  padding: 15px 20px;
   display: block;
 }
 
@@ -1561,6 +1560,7 @@ footer {
   float: right;
   display: block;
   text-overflow: ellipsis;
+  font-size: 18px;
   white-space: nowrap;
 }
 .x_title h2 small {
@@ -4181,31 +4181,31 @@ fieldset {
 }
 
 .alert-info {
-  color: #ededed;
+  color: #fff;
   background-color: rgba(52, 152, 219, 0.88);
   border-color: rgba(52, 152, 219, 0.88);
 }
 
 .alert-warning {
-  color: #ededed;
+  color: #fff;
   background-color: rgba(243, 156, 18, 0.88);
   border-color: rgba(243, 156, 18, 0.88);
 }
 
 .alert-danger {
-  color: #ededed;
+  color: #fff;
   background-color: rgba(231, 76, 60, 0.88);
   border-color: rgba(231, 76, 60, 0.88);
 }
 
 .alert-error {
-  color: #ededed;
+  color: #fff;
   background-color: rgba(231, 76, 60, 0.88);
   border-color: rgba(231, 76, 60, 0.88);
 }
 
 .alert-dark {
-  color: #ededed;
+  color: #fff;
   background-color: rgba(52, 73, 94, 0.88);
   border-color: rgba(52, 73, 94, 0.88);
 }

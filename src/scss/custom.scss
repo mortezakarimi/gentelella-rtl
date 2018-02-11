@@ -647,7 +647,7 @@ body {
   }
   .title_right {
     width: 55%;
-    float: right;
+    float: left;
     display: block;
     .pull-right {
       margin: 10px 0;
@@ -891,7 +891,6 @@ h1, .h1 {
 h2 {
   margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 18px;
   font-weight: 400;
 }
 
@@ -1227,7 +1226,7 @@ a {
     margin-right: auto;
   }
   > li {
-    float: right;
+    float: left;
     cursor: pointer;
     > a {
       padding: 5px;
@@ -1250,7 +1249,7 @@ a {
 
 footer {
   background: $white;
-  padding: 10px 20px;
+  padding: 15px 20px;
   display: block;
 }
 
@@ -1514,6 +1513,7 @@ footer {
     display: block;
     text-overflow: ellipsis;
     //overflow: hidden;
+    font-size:18px;
     white-space: nowrap;
     small {
       margin-right: 10px;
@@ -4296,31 +4296,31 @@ fieldset {
 }
 
 .alert-info {
-  color: $color_gallery_approx;
+  color: $white;
   background-color: $color_curious_blue_88_approx;
   border-color: $color_curious_blue_88_approx;
 }
 
 .alert-warning {
-  color: $color_gallery_approx;
+  color: $white;
   background-color: $color_tree_poppy_88_approx;
   border-color: $color_tree_poppy_88_approx;
 }
 
 .alert-danger {
-  color: $color_gallery_approx;
+  color: $white;
   background-color: $color_cinnabar_88_approx;
   border-color: $color_cinnabar_88_approx;
 }
 
 .alert-error {
-  color: $color_gallery_approx;
+  color: $white;
   background-color: $color_cinnabar_88_approx;
   border-color: $color_cinnabar_88_approx;
 }
 
 .alert-dark {
-  color: #ededed;
+  color: $white;
   background-color: rgba(52, 73, 94, .88);
   border-color: rgba(52, 73, 94, .88);
 }
