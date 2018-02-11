@@ -1,0 +1,53 @@
+{
+  "name": "gentelella-rtl",
+  "version": "1.0.3",
+  "description": "Gentelella RTL Admin is a free to use Bootstrap admin template",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mortezakarimi/gentelella-rtl.git"
+  },
+  "keywords": [
+    "css",
+    "js",
+    "html",
+    "template",
+    "admin",
+    "bootstrap",
+    "theme",
+    "backend",
+    "responsive"
+  ],
+  "authors": [
+    {
+      "name": "Morteza Karimi",
+      "email": "me@morteza-karimi.ir",
+      "homepage": "https://github.com/mortezakarimi",
+      "role": "Creator"
+    }
+  ],
+  "license": "MIT",
+  "main": "build/js/custom.min.js",
+  "bugs": {
+    "url": "https://github.com/mortezakarimi/gentelella-rtl/issues"
+  },
+  "homepage": "https://github.com/mortezakarimi/gentelella-rtl#readme",
+  "devDependencies": {
+    "browser-sync": "^2.12.10",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-compass": "^2.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-nunjucks-render": "^2.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-uglify": "^1.5.3"
+  },
+  "dependencies": {
+    "del": "^2.2.2",
+    "merge": "^1.2.0"
+  }
+}
