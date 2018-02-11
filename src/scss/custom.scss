@@ -1227,7 +1227,7 @@ a {
     margin-right: auto;
   }
   > li {
-    float: right;
+    float: left;
     cursor: pointer;
     > a {
       padding: 5px;
@@ -1250,7 +1250,7 @@ a {
 
 footer {
   background: $white;
-  padding: 10px 20px;
+  padding: 15px 20px;
   display: block;
 }
 
