@@ -1,6 +1,6 @@
 {
   "name": "gentelella-rtl",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Gentelella RTL Admin is a free to use Bootstrap admin template",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
