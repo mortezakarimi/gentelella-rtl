@@ -76,7 +76,7 @@ gulp.task('browser-sync', ['layout'], function () {
     gulp.watch('src/scss/*.scss', ['compass', 'css-minify']);
 });
 
-gulp.task('watch', ['layout', 'css-minify'], function () {
+gulp.task('watch', ['layout','scripts', 'css-minify'], function () {
     // Watch .html files
     gulp.watch('production/*.html', ['layout', browserSync.reload]);
     // Watch .js files
