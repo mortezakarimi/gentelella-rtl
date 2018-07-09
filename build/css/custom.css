@@ -4776,6 +4776,9 @@ div#graph_donut svg text {
   display: none;
 }
 
+body.lock {
+  overflow: hidden;
+}
 body.lock #lock_screen {
   display: block;
   position: fixed;

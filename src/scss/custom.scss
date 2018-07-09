@@ -4917,26 +4917,29 @@ div#graph_donut svg text {
   display: none;
 }
 
-body.lock #lock_screen {
-  display: block;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-  background: rgba(0, 0, 0, .96);
-  z-index: 100000;
-  .clock {
-    direction: ltr;
-    font-size: 10em;
-    color: white;
-  }
-  table {
+body.lock {
+  overflow: hidden;
+  #lock_screen {
+    display: block;
+    position: fixed;
     width: 100%;
     height: 100%;
-    text-align: center;
-  }
-  .unlock {
-    cursor: pointer;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .96);
+    z-index: 100000;
+    .clock {
+      direction: ltr;
+      font-size: 10em;
+      color: white;
+    }
+    table {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+    }
+    .unlock {
+      cursor: pointer;
+    }
   }
 }
