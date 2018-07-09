@@ -6,7 +6,6 @@ Gentelella یک قالب مدیریت راست چین شده می‌باشد ک�
 
 برای پیشرفت سریع‌تر پروژه و دسترسی به امکانات مورد نیاز خود لطفا در صفحه ترلو پروژه رای خود را بدهید
 
-[Gentelella RTL Trello](https://trello.com/b/V1sSyyrH/gentelella-rtl)
 ## دموی قالب
 ![Gentelella Bootstrap Admin Template](./documentation/images/demo-template.png "Gentelella RTL Theme Browser Preview")
 
