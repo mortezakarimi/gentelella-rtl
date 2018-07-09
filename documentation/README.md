@@ -4,9 +4,9 @@ Gentelella Alela! - مستندات
 
 ![](images/demo-template.png)
 
--   [فایل‌ها و پوشه‌ها](#files_and_directories)
--   [لایه‌ها و ساختار](#layout)
--   [اعتبارات](#credits)
+-   [فایل‌ها و پوشه‌ها](#فایل‌ها-و-پوشه‌ها)
+-   [لایه‌ها و ساختار](#قالب-و-ساختار)
+-   [اعتبارات](#اعتبارات)
 
 معرفی
 ============
@@ -70,6 +70,8 @@ npm install gentelella-rtl --save
 
 فایل‌ها و پوشه‌ها
 ---------------------
+
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
 
 ```text
 Root
@@ -208,6 +210,8 @@ Root
 17 directories, 115 files
 ```
 
+</div>
+
 ساختار فایل‌ها و پوشه‌های پروژه به صورت بالا می‌باشد ک در این ساختار پوشه  `vendors`  که وظیفه نگهداری فایل‌های مورد نیاز در پروژه را دارد نمایش داده نشده همچنین پس از اجرا پوشه `public` تولید می‌شود که فایل‌های کامپایل شده پروژه که مناسب استفاده در حالت تولید پروژه می‌باشد را شامل می‌شود.
 
 قالب و ساختار
@@ -222,6 +226,8 @@ Root
 #### هدر
 
 کد لازم برای بخش هدر به صورت زیر می‌باشد.
+
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
 
 ```html
 <!DOCTYPE html>
@@ -368,9 +374,13 @@ Root
         <!-- /top navigation -->
 ```
 
+</div>
+
 #### هدر
 
 کد لازم برای بخش منو کناری به صورت زیر می‌باشد.
+
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
 
 ```html
 <div class="col-md-3 left_col{% block fix_menu %}{% endblock %} hidden-print">
@@ -523,9 +533,13 @@ Root
 </div>                 
 ```
 
+</div>
+
 #### محتوی
 
 با استفاده از کد زیر می‌توانید یک صفحه ساده را با استفاده از بخش‌های دیگر ایجاد نمایید.
+
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
 
 ```html
 <!-- page content -->
@@ -584,7 +598,11 @@ Root
 <!-- /page content -->
 ```
 
-####فوتر
+</div>
+
+####فوتر 
+
+<div dir="LTR" align="left" style="direction:ltr;text-align:left;">
 
 ```html
 <!-- footer content -->
@@ -639,6 +657,8 @@ Root
 </body>
 </html>
 ```
+
+</div>
 
 در انتها شما می‌توایند صفحه کامل کد را در [این](./plain_page.html) آدرس مشاهده نمایید.
 
