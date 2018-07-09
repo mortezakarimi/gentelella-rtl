@@ -338,7 +338,7 @@ pre, code {
 
 @font-face {
   font-family: "B Yekan";
-  src: url('../fonts/Yekan-modified.woff?1521361730') format('woff'), url('../fonts/Yekan-modified.ttf?1521361730') format('truetype'), url('../fonts/Yekan-modified.eot?1521361730') format('embedded-opentype');
+  src: url('../fonts/Yekan-modified.woff?1530327457') format('woff'), url('../fonts/Yekan-modified.ttf?1530327457') format('truetype'), url('../fonts/Yekan-modified.eot?1530327457') format('embedded-opentype');
 }
 .left_col {
   background: #2a3f54;
@@ -2267,6 +2267,7 @@ span.tag a {
   font-size: 17px;
   display: block;
   float: left;
+  cursor: pointer;
   background: #172d44;
 }
 .sidebar-footer a:hover {
@@ -2571,8 +2572,8 @@ span.tag a {
 }
 
 .has-feedback .form-control {
-  padding-right: 42.5px;
-  padding-left: 12px;
+  padding-left: 42.5px;
+  padding-right: 12px;
 }
 
 .form-control {
@@ -3590,6 +3591,15 @@ textarea:focus {
   width: 100%;
 }
 
+.rest_pass_form {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 21;
+  opacity: 0;
+  width: 100%;
+}
+
 .login_form {
   position: absolute;
   top: 0;
@@ -3697,6 +3707,10 @@ textarea:focus {
 .login_content form input[type="submit"] {
   float: left;
   margin-left: 38px;
+}
+.login_content form button[type=submit] {
+  font-size: 12px;
+  margin: 0;
 }
 .login_content form div a {
   font-size: 12px;
@@ -4598,6 +4612,15 @@ img.avatar {
   animation-name: fadeOutLeft;
 }
 
+#reset:target ~ .login_wrapper .rest_pass_form {
+  z-index: 22;
+  animation-name: fadeInLeft;
+  animation-delay: .1s;
+}
+#reset:target ~ .login_wrapper .login_form {
+  animation-name: fadeOutLeft;
+}
+
 .clearfix:after {
   content: ".";
   display: block;
@@ -4747,4 +4770,32 @@ form:after {
 
 div#graph_donut svg text {
   font-family: B Yekan !important;
+}
+
+#lock_screen {
+  display: none;
+}
+
+body.lock #lock_screen {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.96);
+  z-index: 100000;
+}
+body.lock #lock_screen .clock {
+  direction: ltr;
+  font-size: 10em;
+  color: white;
+}
+body.lock #lock_screen table {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+body.lock #lock_screen .unlock {
+  cursor: pointer;
 }

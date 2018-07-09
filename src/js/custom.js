@@ -5461,6 +5461,64 @@ function init_echarts() {
 
 }
 
+function toggleFullScreen() {
+    if (!document.fullscreenElement &&    // alternative standard method
+        !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {  // current working methods
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        } else if (document.documentElement.msRequestFullscreen) {
+            document.documentElement.msRequestFullscreen();
+        } else if (document.documentElement.mozRequestFullScreen) {
+            document.documentElement.mozRequestFullScreen();
+        } else if (document.documentElement.webkitRequestFullscreen) {
+            document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        }
+    }
+}
+
+function lock_screen() {
+    setInterval(function(){
+
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+
+        // Add leading zeros
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
+        hours = (hours < 10 ? "0" : "") + hours;
+
+        // Compose the string for display
+        var currentTimeString = hours + ":" + minutes + ":" + seconds;
+        $("#lock_screen .clock").html(currentTimeString);
+
+    },1000);
+    $(document).on('click', '.lock_btn', function (e) {
+        e.preventDefault();
+        $('body').addClass('lock');
+    });
+    $(document).on('mouseover', '.unlock #icon_lock', function (e) {
+        $(this).removeClass('fa-lock').addClass('fa-unlock');
+    });
+    $(document).on('mouseout', '.unlock #icon_lock', function (e) {
+        $(this).removeClass('fa-unlock').addClass('fa-lock');
+    });
+    $(document).on('click', '.unlock', function (e) {
+        e.preventDefault();
+        $('body').removeClass('lock');
+    });
+}
 
 $(document).ready(function () {
     // moment().locale('fa');
@@ -5499,6 +5557,6 @@ $(document).ready(function () {
     init_CustomNotification();
     init_autosize();
     init_autocomplete();
-
+    lock_screen();
 });
 

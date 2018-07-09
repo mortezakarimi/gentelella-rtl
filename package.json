@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Gentelella RTL Admin is a free to use Bootstrap admin template",
   "scripts": {
+    "gulp": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
