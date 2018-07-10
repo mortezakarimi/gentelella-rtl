@@ -4,8 +4,6 @@
 
 Gentelella یک قالب مدیریت راست چین شده می‌باشد که از روی قالب اصلی که در آدرس [Gentelella](https://github.com/puikinsh/gentelella) می‌توانید آن را مشاهده نمایید بوجود آمده است.
 
-برای پیشرفت سریع‌تر پروژه و دسترسی به امکانات مورد نیاز خود لطفا در صفحه ترلو پروژه رای خود را بدهید
-
 ## دموی قالب
 ![Gentelella Bootstrap Admin Template](./documentation/images/demo-template.png "Gentelella RTL Theme Browser Preview")
 
