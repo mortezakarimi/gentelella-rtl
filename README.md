@@ -4,9 +4,6 @@
 
 Gentelella یک قالب مدیریت راست چین شده می‌باشد که از روی قالب اصلی که در آدرس [Gentelella](https://github.com/puikinsh/gentelella) می‌توانید آن را مشاهده نمایید بوجود آمده است.
 
-برای پیشرفت سریع‌تر پروژه و دسترسی به امکانات مورد نیاز خود لطفا در صفحه ترلو پروژه رای خود را بدهید
-
-[Gentelella RTL Trello](https://trello.com/b/V1sSyyrH/gentelella-rtl)
 ## دموی قالب
 ![Gentelella Bootstrap Admin Template](./documentation/images/demo-template.png "Gentelella RTL Theme Browser Preview")
 
@@ -17,6 +14,13 @@ Gentelella یک قالب مدیریت راست چین شده می‌باشد ک�
 هدف من این است که این پکیج با استفاده از تمام مدیرت بسته های مختلف قابل نصب باشد. در صورتی که مدیریت بسته مورد نظر شما در زیر وجود ندارد کافیست Pull Request دهید
 
 چند روش نصب این بسته در زیر آمده است:
+
+**دانلود آخرین نسخه از گیت هاب**
+
+همچنین برای دانلود آخرین نسخه میتوانید از این پیوند اقدام نمایید.
+
+[دانلود](https://github.com/mortezakarimi/gentelella-rtl/releases/latest)
+
 
 **نصب با استفاده از گیت هاب**
 
@@ -100,14 +104,14 @@ npm install gentelella-rtl --save
 ## قالب Gentelella برای دیگر فریمورک ها
 
 <div dir="LTR" align="left" style="direction:ltr;text-align:left;">
-
+  
+* [Gentelella-rtl on Yii framework 2](https://github.com/mortezakarimi/yii2-gentelella-rtl) with an asset bundle, a layout template and some widgets. inspired from [Gentelella on Yii framework 2](https://github.com/yiister/yii2-gentelella)
 * [Gentelella on Ruby on Rails 4](https://github.com/iogbole/gentelella_on_rails) thanks to Israel Ogbole.
 * [Gentelella on Smarty 3](https://github.com/microvb/otp-thing) with one time password generator, validator, and QR code generator that has no web dependencies (self-contained) in PHP thanks to MicroVB INC
 * [Gentelella integrated into Symfony 3](https://github.com/krzysiekpiasecki/Gentelella) full stack PHP framework thanks to Krzysztof Piasecki.
 * [Gentelella on Yii framework 2](https://github.com/yiister/yii2-gentelella) with an asset bundle, a layout template and some widgets.
 * [Gentelella on Angular 2](https://github.com/kmkatsma/angular2-webpack-starter-gentelella) Angular Webpack Starter modified to utilize the Gentelella.
 * [Gentelella on Aurelia](https://github.com/kmkatsma/aurelia-gentelella) Typescript webpack skeleton modified to utilize the Gentelella.
-
 </div>
 
 به ما اطلاع دهید اگر ادغام را برای این قالب مدیریت در سایر سیستم عامل ها و چارچوب ها انجام داده اید و خوشحال خواهیم شد که کار خود را به اشتراک بگذارید.
