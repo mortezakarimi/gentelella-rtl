@@ -756,7 +756,39 @@ table {
       }
     }
   }
+
   &.dataTable {
+    thead > tr > th.sorting_asc,
+    thead > tr > th.sorting_desc,
+    thead > tr > th.sorting,
+    thead > tr > td.sorting_asc,
+    thead > tr > td.sorting_desc,
+    thead > tr > td.sorting {
+      padding-left: 30px;
+      padding-right: 8px;
+      a{
+        display: block;
+      }
+    }
+    thead .sorting:after,
+    thead .sorting_asc:after,
+    thead .sorting_desc:after,
+    thead .sorting_asc_disabled:after,
+    thead .sorting_desc_disabled:after {
+      right: auto;
+      left: 8px;
+    }
+    &.table-bordered th,
+    &.table-bordered td {
+      border-right-width: 0;
+      border-left-width: 1px;
+    }
+    &.table-bordered th:last-child,
+    &.table-bordered th:last-child,
+    &.table-bordered td:last-child,
+    &.table-bordered td:last-child {
+      border-left-width: 0;
+    }
     th.focus {
       outline: 2px solid $color_mountain_meadow_approx !important;
       outline-offset: -1px;
@@ -2453,7 +2485,7 @@ span {
   .right {
     width: 5%;
     float: right;
-    margin-right: 3%;
+    margin-left: 3%;
   }
   .left {
     width: 90%;
