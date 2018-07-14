@@ -766,7 +766,7 @@ table {
     thead > tr > td.sorting {
       padding-left: 30px;
       padding-right: 8px;
-      a{
+      a {
         display: block;
       }
     }
@@ -2482,15 +2482,22 @@ span {
   border-bottom: 1px solid $alto;
   margin-bottom: 2px;
   display: inline-block;
+  &.active {
+    border-left: 3px solid $color_mountain_meadow_approx;
+    border-right: 3px solid $color_mountain_meadow_approx;
+  }
+
   .right {
     width: 5%;
     float: right;
     margin-left: 3%;
   }
+
   .left {
     width: 90%;
     float: right;
   }
+
   h3 {
     font-size: 15px;
     font-weight: bold;
@@ -2502,11 +2509,13 @@ span {
       line-height: 20px;
     }
   }
+
   .badge {
     padding: 3px 6px;
     font-size: 8px;
     background: $color_pink_swan_approx;
   }
+
 }
 
 @media(max-width: 767px) {
