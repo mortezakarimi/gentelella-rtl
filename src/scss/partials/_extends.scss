@@ -1,0 +1,8 @@
+//@extend-elements
+//original selectors
+//.nav-sm ul.nav.child_menu ul, .nav-sm .nav.side-menu li.active-sm ul ul
+%extend_1 {
+  position: static;
+  width: auto;
+  background: none;
+}

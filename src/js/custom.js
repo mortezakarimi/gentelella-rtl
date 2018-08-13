@@ -1,40 +1,5 @@
 /**
  * Resize function without multiple trigger
- * 
- * Usage:
- * $(window).smartresize(function(){  
- *     // code here
- * });
- */
-(function($,sr){
-    // debouncing function from John Hann
-    // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
-    var debounce = function (func, threshold, execAsap) {
-      var timeout;
-
-        return function debounced () {
-            var obj = this, args = arguments;
-            function delayed () {
-                if (!execAsap)
-                    func.apply(obj, args); 
-                timeout = null; 
-            }
-
-            if (timeout)
-                clearTimeout(timeout);
-            else if (execAsap)
-                func.apply(obj, args);
-
-            timeout = setTimeout(delayed, threshold || 100); 
-        };
-    };
-
-    // smartresize 
-    jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
-
-})(jQuery,'smartresize');
-/**
- * Resize function without multiple trigger
  *
  * Usage:
  * $(window).smartresize(function(){
@@ -2933,29 +2898,6 @@ function init_calendar() {
 };
 
 /* DATA TABLES */
-var dataTableLang = {
-    "sEmptyTable": "هیچ داده ای در جدول وجود ندارد",
-    "sInfo": "نمایش _START_ تا _END_ از _TOTAL_ رکورد",
-    "sInfoEmpty": "نمایش 0 تا 0 از 0 رکورد",
-    "sInfoFiltered": "(فیلتر شده از _MAX_ رکورد)",
-    "sInfoPostFix": "",
-    "sInfoThousands": ",",
-    "sLengthMenu": "نمایش _MENU_ رکورد",
-    "sLoadingRecords": "در حال بارگزاری...",
-    "sProcessing": "در حال پردازش...",
-    "sSearch": "جستجو:",
-    "sZeroRecords": "رکوردی با این مشخصات پیدا نشد",
-    "oPaginate": {
-        "sFirst": "ابتدا",
-        "sLast": "انتها",
-        "sNext": "بعدی",
-        "sPrevious": "قبلی"
-    },
-    "oAria": {
-        "sSortAscending": ": فعال سازی نمایش به صورت صعودی",
-        "sSortDescending": ": فعال سازی نمایش به صورت نزولی"
-    }
-};
 
 function init_DataTables() {
 
@@ -2969,9 +2911,9 @@ function init_DataTables() {
     var handleDataTableButtons = function () {
         if ($("#datatable-buttons").length) {
             $("#datatable-buttons").DataTable({
-                language: "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Persian.json"
-            },
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Persian.json"
+                },
                 dom: "Bfrtip",
                 buttons: [
                     {

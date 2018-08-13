@@ -1,0 +1,42 @@
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.fixed_height_320 {
+  height: 320px;
+}
+.fixed_height_390 {
+  height: 390px;
+}
+.fixed_height_200 {
+  height: 200px;
+}
+.overflow_hidden {
+  overflow: hidden;
+}
+.progress-bar-dark {
+  background-color: $color_pickled_bluewood_approx !important;
+}
+.progress-bar-gray {
+  background-color: $color_submarine_approx !important;
+}
+
+.center-margin {
+  margin: 0 auto;
+  float: none!important;
+}
+
+.left {
+  float: left;
+}
+
+.alignleft {
+  float: left;
+  margin-right: 15px;
+}
+
+.alignright {
+  float: right;
+  margin-left: 15px;
+}
