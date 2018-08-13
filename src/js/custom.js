@@ -2907,33 +2907,13 @@ function init_DataTables() {
         return;
     }
     console.log('init_DataTables');
-    var dataTableLang = {
-        "sEmptyTable": "هیچ داده ای در جدول وجود ندارد",
-        "sInfo": "نمایش _START_ تا _END_ از _TOTAL_ رکورد",
-        "sInfoEmpty": "نمایش 0 تا 0 از 0 رکورد",
-        "sInfoFiltered": "(فیلتر شده از _MAX_ رکورد)",
-        "sInfoPostFix": "",
-        "sInfoThousands": ",",
-        "sLengthMenu": "نمایش _MENU_ رکورد",
-        "sLoadingRecords": "در حال بارگزاری...",
-        "sProcessing": "در حال پردازش...",
-        "sSearch": "جستجو:",
-        "sZeroRecords": "رکوردی با این مشخصات پیدا نشد",
-        "oPaginate": {
-            "sFirst": "ابتدا",
-            "sLast": "انتها",
-            "sNext": "بعدی",
-            "sPrevious": "قبلی"
-        },
-        "oAria": {
-            "sSortAscending": ": فعال سازی نمایش به صورت صعودی",
-            "sSortDescending": ": فعال سازی نمایش به صورت نزولی"
-        }
-    };
+
     var handleDataTableButtons = function () {
         if ($("#datatable-buttons").length) {
             $("#datatable-buttons").DataTable({
-                language: dataTableLang,
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Persian.json"
+                },
                 dom: "Bfrtip",
                 buttons: [
                     {
@@ -2977,20 +2957,28 @@ function init_DataTables() {
     }();
 
     $('#datatable').dataTable({
-        language: dataTableLang
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Persian.json"
+        }
     });
 
     $('#datatable-keytable').DataTable({
         keys: true,
-        language: dataTableLang,
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Persian.json"
+        }
     });
 
     $('#datatable-responsive').DataTable({
-        language: dataTableLang
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Persian.json"
+        }
     });
 
     $('#datatable-scroller').DataTable({
-        language: dataTableLang,
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Persian.json"
+        },
         ajax: "js/datatables/json/scroller-demo.json",
         deferRender: true,
         scrollY: 380,
@@ -2999,14 +2987,18 @@ function init_DataTables() {
     });
 
     $('#datatable-fixed-header').DataTable({
-        language: dataTableLang,
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Persian.json"
+        },
         fixedHeader: true
     });
 
     var $datatable = $('#datatable-checkbox');
 
     $datatable.dataTable({
-        language: dataTableLang,
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Persian.json"
+        },
         'order': [[1, 'asc']],
         'columnDefs': [
             {orderable: false, targets: [0]}
@@ -5487,7 +5479,7 @@ function toggleFullScreen() {
 }
 
 function lock_screen() {
-    setInterval(function(){
+    setInterval(function () {
 
         var currentTime = new Date();
         var hours = currentTime.getHours();
@@ -5503,7 +5495,7 @@ function lock_screen() {
         var currentTimeString = hours + ":" + minutes + ":" + seconds;
         $("#lock_screen .clock").html(currentTimeString);
 
-    },1000);
+    }, 1000);
     $(document).on('click', '.lock_btn', function (e) {
         e.preventDefault();
         $('body').addClass('lock');
