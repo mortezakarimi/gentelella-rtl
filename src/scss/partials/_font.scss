@@ -1,0 +1,122 @@
+/*
+IRAN Sans-serif fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com
+---------------------------------------------------------------------
+This set of fonts are used in this project under the license: (Y68A9)
+---------------------------------------------------------------------
+*/
+
+@include font-face('IRANSans',
+        font-files(
+                        'woff2/IRANSansWeb_Black.woff2',
+                        'woff/IRANSansWeb_Black.woff',
+                        'ttf/IRANSansWeb_Black.ttf'),
+        'eot/IRANSansWeb_Black.eot',
+        900,
+        'normal'
+);
+
+@include font-face('IRANSans',
+        font-files(
+                        'woff2/IRANSansWeb_Bold.woff2',
+                        'woff/IRANSansWeb_Bold.woff',
+                        'ttf/IRANSansWeb_Bold.ttf'),
+        'eot/IRANSansWeb_Bold.eot',
+        'bold',
+        'normal'
+);
+
+@include font-face('IRANSans',
+        font-files(
+                        'woff2/IRANSansWeb_Medium.woff2',
+                        'woff/IRANSansWeb_Medium.woff',
+                        'ttf/IRANSansWeb_Medium.ttf'),
+        'eot/IRANSansWeb_Medium.eot',
+        500,
+        'normal'
+);
+@include font-face('IRANSans',
+        font-files(
+                        'woff2/IRANSansWeb_Light.woff2',
+                        'woff/IRANSansWeb_Light.woff',
+                        'ttf/IRANSansWeb_Light.ttf'),
+        'eot/IRANSansWeb_Light.eot',
+        300,
+        'normal'
+);
+@include font-face('IRANSans',
+        font-files(
+                        'woff2/IRANSansWeb_UltraLight.woff2',
+                        'woff/IRANSansWeb_UltraLight.woff',
+                        'ttf/IRANSansWeb_UltraLight.ttf'),
+        'eot/IRANSansWeb_UltraLight.eot',
+        200,
+        'normal'
+);
+@include font-face('IRANSans',
+        font-files(
+                        'woff2/IRANSansWeb.woff2',
+                        'woff/IRANSansWeb.woff',
+                        'ttf/IRANSansWeb.ttf'),
+        'eot/IRANSansWeb.eot',
+        'normal',
+        'normal'
+);
+/**
+IF you want all numbers in persian use this
+ */
+@include font-face('IRANSans_FaNum',
+        font-files(
+                        'woff2/IRANSansWeb(FaNum)_Black.woff2',
+                        'woff/IRANSansWeb(FaNum)_Black.woff',
+                        'ttf/IRANSansWeb(FaNum)_Black.ttf'),
+        'eot/IRANSansWeb(FaNum)_Black.eot',
+        900,
+        'normal'
+);
+
+@include font-face('IRANSans_FaNum',
+        font-files(
+                        'woff2/IRANSansWeb(FaNum)_Bold.woff2',
+                        'woff/IRANSansWeb(FaNum)_Bold.woff',
+                        'ttf/IRANSansWeb(FaNum)_Bold.ttf'),
+        'eot/IRANSansWeb(FaNum)_Bold.eot',
+        'bold',
+        'normal'
+);
+
+@include font-face('IRANSans_FaNum',
+        font-files(
+                        'woff2/IRANSansWeb(FaNum)_Medium.woff2',
+                        'woff/IRANSansWeb(FaNum)_Medium.woff',
+                        'ttf/IRANSansWeb(FaNum)_Medium.ttf'),
+        'eot/IRANSansWeb(FaNum)_Medium.eot',
+        500,
+        'normal'
+);
+@include font-face('IRANSans_FaNum',
+        font-files(
+                        'woff2/IRANSansWeb(FaNum)_Light.woff2',
+                        'woff/IRANSansWeb(FaNum)_Light.woff',
+                        'ttf/IRANSansWeb(FaNum)_Light.ttf'),
+        'eot/IRANSansWeb(FaNum)_Light.eot',
+        300,
+        'normal'
+);
+@include font-face('IRANSans_FaNum',
+        font-files(
+                        'woff2/IRANSansWeb(FaNum)_UltraLight.woff2',
+                        'woff/IRANSansWeb(FaNum)_UltraLight.woff',
+                        'ttf/IRANSansWeb(FaNum)_UltraLight.ttf'),
+        'eot/IRANSansWeb(FaNum)_UltraLight.eot',
+        200,
+        'normal'
+);
+@include font-face('IRANSans_FaNum',
+        font-files(
+                        'woff2/IRANSansWeb(FaNum).woff2',
+                        'woff/IRANSansWeb(FaNum).woff',
+                        'ttf/IRANSansWeb(FaNum).ttf'),
+        'eot/IRANSansWeb.eot',
+        'normal',
+        'normal'
+);

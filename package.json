@@ -1,6 +1,6 @@
 {
   "name": "gentelella-rtl",
-  "version": "1.0.5",
+  "version": "1.2.0",
   "description": "Gentelella RTL Admin is a free to use Bootstrap admin template",
   "scripts": {
     "start": "gulp",
