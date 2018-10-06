@@ -24,7 +24,13 @@
   "license": "MIT",
   "ignore": [
     "**/.*",
-    "documentation"
+    "**/documentation",
+    "**/node_modules",
+    "**/bower_components",
+    "**/test",
+    "**/package.json",
+    "**/src",
+    "**/docs"
   ],
   "devDependencies": {
     "jquery": "^2.2.3",

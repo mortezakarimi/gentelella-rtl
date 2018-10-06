@@ -617,7 +617,6 @@ body {
   }
   li a i {
     font-size: 15px;
-    @include transform(scaleX(-1));
     &.fa.pull-right {
       margin-right: .3em;
       float: left !important;
@@ -4572,7 +4571,7 @@ tfoot input {
   line-height: 13px;
   padding: 2px 6px;
   position: absolute;
-  right: 2px;
+  left: 2px;
   top: 8px;
 }
 
