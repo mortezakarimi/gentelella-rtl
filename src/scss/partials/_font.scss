@@ -120,3 +120,60 @@ IF you want all numbers in persian use this
         'normal',
         'normal'
 );
+
+
+/* ====== Vazir Font ======== */
+@include font-face('Vazir',
+        font-files(
+                        'Vazir/Vazir.woff2',
+                        'Vazir/Vazir.woff',
+                        'Vazir/Vazir.ttf'),
+        'Vazir/Vazir.eot',
+        'normal',
+        'normal'
+);
+@include font-face('Vazir',
+        font-files(
+                        'Vazir/Vazir-Bold.woff2',
+                        'Vazir/Vazir-Bold.woff',
+                        'Vazir/Vazir-Bold.ttf'),
+        'Vazir/Vazir-Bold.eot',
+        'bold',
+        'normal'
+);
+@include font-face('Vazir',
+        font-files(
+                        'Vazir/Vazir-Black.woff2',
+                        'Vazir/Vazir-Black.woff',
+                        'Vazir/Vazir-Black.ttf'),
+        'Vazir/Vazir-Black.eot',
+        900,
+        'normal'
+);
+@include font-face('Vazir',
+        font-files(
+                        'Vazir/Vazir-Medium.woff2',
+                        'Vazir/Vazir-Medium.woff',
+                        'Vazir/Vazir-Medium.ttf'),
+        'Vazir/Vazir-Medium.eot',
+        500,
+        'normal'
+);
+@include font-face('Vazir',
+        font-files(
+                        'Vazir/Vazir-Light.woff2',
+                        'Vazir/Vazir-Light.woff',
+                        'Vazir/Vazir-Light.ttf'),
+        'Vazir/Vazir-Light.eot',
+        300,
+        'normal'
+);
+@include font-face('Vazir',
+        font-files(
+                        'Vazir/Vazir-Thin.woff2',
+                        'Vazir/Vazir-Thin.woff',
+                        'Vazir/Vazir-Thin.ttf'),
+        'Vazir/Vazir-Thin.eot',
+        100,
+        'normal'
+);

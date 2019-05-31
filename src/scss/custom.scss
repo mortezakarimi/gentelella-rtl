@@ -478,6 +478,18 @@ body {
   color: $color_bermuda_gray_approx;
   background: $color_pickled_bluewood_approx;
   font-family: $font_IRANSansWeb, $font_0, $font_1, $font_2, $font_3, $font_4;
+  &.iransans{
+    font-family: $font_IRANSansWeb, $font_0, $font_1, $font_2, $font_3, $font_4;
+  }
+  &.persian_num{
+    font-family: $font_IRANSansWebFaNum, $font_0, $font_1, $font_2, $font_3, $font_4;
+  }
+  &.vazir{
+    font-family: $font_Vazir, $font_0, $font_1, $font_2, $font_3, $font_4;
+  }
+  &.yekan{
+    font-family: $font_B_Yekan, $font_0, $font_1, $font_2, $font_3, $font_4;
+  }
   font-size: 13px;
   font-weight: 400;
   line-height: 1.471;
@@ -488,6 +500,18 @@ body {
 
 .tooltip {
   font-family: $font_IRANSansWeb, $font_0, $font_1, $font_2, $font_3, $font_4;
+  body.iransans &{
+    font-family: $font_IRANSansWeb, $font_0, $font_1, $font_2, $font_3, $font_4;
+  }
+  body.persian_num &{
+    font-family: $font_IRANSansWebFaNum, $font_0, $font_1, $font_2, $font_3, $font_4;
+  }
+  body.vazir &{
+    font-family: $font_Vazir, $font_0, $font_1, $font_2, $font_3, $font_4;
+  }
+  body.yekan &{
+    font-family: $font_B_Yekan, $font_0, $font_1, $font_2, $font_3, $font_4;
+  }
 }
 
 .nav_title {
@@ -617,7 +641,6 @@ body {
   }
   li a i {
     font-size: 15px;
-    @include transform(scaleX(-1));
     &.fa.pull-right {
       margin-right: .3em;
       float: left !important;
@@ -2251,7 +2274,19 @@ span {
     margin-right: 5px;
     font-weight: 500;
     margin-bottom: 5px;
-    font-family: $font_IRANSansWeb;
+    font-family: $font_IRANSansWeb, $font_0, $font_1, $font_2, $font_3, $font_4;
+    body.iransans &{
+      font-family: $font_IRANSansWeb, $font_0, $font_1, $font_2, $font_3, $font_4;
+    }
+    body.persian_num &{
+      font-family: $font_IRANSansWebFaNum, $font_0, $font_1, $font_2, $font_3, $font_4;
+    }
+    body.vazir &{
+      font-family: $font_Vazir, $font_0, $font_1, $font_2, $font_3, $font_4;
+    }
+    body.yekan &{
+      font-family: $font_B_Yekan, $font_0, $font_1, $font_2, $font_3, $font_4;
+    }
     a {
       color: $color_catskill_white_approx !important;
     }
@@ -3417,6 +3452,18 @@ textarea {
   }
   p {
     font-family: $font_IRANSansWeb, $font_7, $font_8;
+    body.iransans &{
+      font-family: $font_IRANSansWeb, $font_7, $font_8;
+    }
+    body.persian_num &{
+      font-family: $font_IRANSansWebFaNum, $font_7, $font_8;
+    }
+    body.vazir &{
+      font-family: $font_Vazir, $font_7, $font_8;
+    }
+    body.yekan &{
+      font-family: $font_B_Yekan, $font_7, $font_8;
+    }
     font-style: italic;
     font-size: 12px;
     position: relative;
@@ -3733,6 +3780,18 @@ textarea {
   }
   h1 {
     font: normal 25px $font_IRANSansWeb, $font_9, $font_2, $font_4;
+    body.iransans &{
+      font: normal 25px $font_IRANSansWeb, $font_9, $font_2, $font_4;
+    }
+    body.persian_num &{
+      font: normal 25px $font_IRANSansWebFaNum, $font_9, $font_2, $font_4;
+    }
+    body.vazir &{
+      font: normal 25px $font_Vazir, $font_9, $font_2, $font_4;
+    }
+    body.yekan &{
+      font: normal 25px $font_B_Yekan, $font_9, $font_2, $font_4;
+    }
     letter-spacing: -0.05em;
     line-height: 20px;
     margin: 10px 0 30px;
@@ -4572,7 +4631,7 @@ tfoot input {
   line-height: 13px;
   padding: 2px 6px;
   position: absolute;
-  right: 2px;
+  left: 2px;
   top: 8px;
 }
 
@@ -4943,7 +5002,19 @@ form:after {
 
 // graph donut change font Family
 div#graph_donut svg text {
-  font-family: $font_IRANSansWeb !important;
+  font-family: $font_IRANSansWeb, $font_0, $font_1, $font_2, $font_3, $font_4  !important;
+  body.iransans &{
+    font-family: $font_IRANSansWeb, $font_0, $font_1, $font_2, $font_3, $font_4  !important;
+  }
+  body.persian_num &{
+    font-family: $font_IRANSansWebFaNum, $font_0, $font_1, $font_2, $font_3, $font_4 !important;
+  }
+  body.vazir &{
+    font-family: $font_Vazir, $font_0, $font_1, $font_2, $font_3, $font_4 !important;
+  }
+  body.yekan &{
+    font-family: $font_B_Yekan, $font_0, $font_1, $font_2, $font_3, $font_4 !important;
+  }
 }
 
 #lock_screen {
