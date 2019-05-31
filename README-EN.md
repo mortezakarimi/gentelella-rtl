@@ -7,6 +7,35 @@ Gentelella RTL Admin is a fork from gentelella Admin Bootstrap template.
 
 **[Template Demo](https://mortezakarimi.github.io/gentelella-rtl/public/index.html)**
 
+
+## Change Font 
+
+You can change template font by add or change `body` tag class name
+
+**IRanSans (Default Font)**
+
+```
+body.iransans
+```
+
+**IRanSans Persian Number**
+
+```
+body.iransans.persian_num
+```
+
+**Vazir Font**
+
+```
+body.vazir
+```
+
+**Yekan Font**
+
+```
+body.yekan
+```
+
 ## Installation via Package Manger
 
 Our goal is to make it installable on different Package Manager! Do you want to use it on your favorite Package Manager and you know how? Pull request all the way! 
