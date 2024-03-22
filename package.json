@@ -47,7 +47,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-nunjucks-render": "^2.2.1",
     "gulp-rename": "^1.2.2",
-    "gulp-ruby-sass": "^2.0.6",
+    "gulp-ruby-sass": "^4.0.0",
     "gulp-uglify": "^1.5.3",
     "del": "^2.2.2"
   },
